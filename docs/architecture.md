@@ -32,7 +32,6 @@ ml/data/raw/*.csv ──► ml/ (Python, offline) ──► web/public/data/*.js
 | `ml/` | Load the dataset, build features, train K-Means, compute CA-01' metrics, export artifacts | Python 3.12, uv, pandas, scikit-learn, pytest, ruff |
 | `contracts/` | JSON schema for the exported artifacts, plus an example file | JSON Schema |
 | `web/` | Profile selector, rule engine, responsive store UI, AI notice | Vite, React, TypeScript, Vitest, Playwright, axe |
-| `scripts/` | Toolchain check and install for macOS, Linux and Windows | bash, PowerShell |
 | `docs/` | This file, layout rules, acceptance criteria, dataset findings | Markdown |
 
 ### Category model (`ml/`)
@@ -75,7 +74,8 @@ Each acceptance criterion (CA-01'..CA-05) maps to an automated test; see [`accep
 | 2026-11-04 | K-Means on category affinity only; behavior and demographic columns carry no category signal. |
 | 2026-11-04 | Layout by a deterministic rule table instead of a supervised model; the candidate labels are fixed thresholds. |
 | 2026-11-04 | CA-01 relaxed to CA-01' (silhouette ≥ 0.40 plus stability and distinct rankings). |
-| 2026-11-04 | No Docker dev container and no Makefile; cross-platform setup scripts instead. |
+| 2026-11-04 | No Docker dev container and no Makefile. |
+| 2026-11-06 | No setup scripts; each developer installs the tools listed in the README. |
 | 2026-11-06 | Layout rule table confirmed; it applies only to Home/Dashboard. |
 | 2026-11-06 | Products are mock data; the UI is responsive (desktop and mobile). |
 | 2026-11-06 | Figma is the design source only, outside the repo; CA-04 navigation is verified in the web app. |

@@ -17,7 +17,7 @@ Always loaded. Keep it short; details live in `docs/` and load on demand.
 
 ## Commands
 
-- Setup: `scripts/setup.sh` (macOS/Linux) or `powershell -ExecutionPolicy Bypass -File scripts\setup.ps1`
+- Setup: install the tools listed in `README.md` (no setup scripts, no Makefile)
 - ML: `uv run --project ml pytest`
 - Web: `npm --prefix web run dev|test|build|lint`
 
