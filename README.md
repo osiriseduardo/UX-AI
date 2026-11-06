@@ -1,6 +1,6 @@
 # UX-AI
 
-Prototype of an online store whose home page adapts to each customer. Built for the course "Formulación de Proyectos de Tecnología" (UT BIS Cancún). Final demo: **2026-12-10**.
+Prototype of an online store whose home page adapts to each customer.
 
 ## What it does
 
@@ -21,13 +21,13 @@ The full design, the components and the decisions are in **[docs/architecture.md
 
 ## Repository structure
 
-| Path | Contents | Status |
-|---|---|---|
-| `docs/` | Architecture, layout rules, acceptance criteria, dataset findings | ready |
-| `AGENTS.md`, `.claude/skills/` | Instructions for AI coding agents (OpenCode) | ready |
-| `contracts/` | JSON schema shared by `ml/` and `web/` | planned |
-| `ml/` | Python pipeline: data loading, K-Means, metrics, export | planned |
-| `web/` | Vite + React + TypeScript store | planned |
+| Path | Contents |
+|---|---|
+| `docs/` | Architecture, layout rules, acceptance criteria, dataset findings |
+| `AGENTS.md`, `.claude/skills/` | Instructions for AI coding agents (OpenCode) |
+| `contracts/` | JSON schema shared by `ml/` and `web/` |
+| `ml/` | Python pipeline: data loading, K-Means, metrics, export |
+| `web/` | Vite + React + TypeScript store |
 
 ## Getting started
 
@@ -73,47 +73,9 @@ The dataset is not committed. Ask the team for `E-commerce_Customer_Segmentation
 | Build the static site | `npm --prefix web run build` |
 | Lint the web code | `npm --prefix web run lint` |
 
-## How we work
-
-- `develop` is the working branch. Create your branch from it (`feat/…`, `fix/…`, `docs/…`) and open the pull request against `develop`.
-- Never push to `develop` or `main` directly. The repository owner merges the pull requests, and merges `develop` into `main` at milestones.
-- Delete your branch after its pull request is merged.
-- Pull requests need one approval. Keep them around 400 changed lines.
-- Commit messages follow [Conventional Commits](https://www.conventionalcommits.org/): `feat(web): add hero component`.
-- Code, comments, tests and docs are written in English.
-- Never commit the dataset, trained models (`*.joblib`), `.env` files, `node_modules/` or `.venv/`.
-- Each acceptance criterion (CA-01' to CA-05) has an automated test. See [docs/acceptance-criteria.md](docs/acceptance-criteria.md).
-
-## Working with OpenCode
-
-The repository is set up for [OpenCode](https://opencode.ai), and it also works with the free models:
-
-- `AGENTS.md` is loaded in every session. It is kept short on purpose.
-- Three skills in `.claude/skills/` load only when the task needs them:
-  - `uxai-ml-pipeline` for the model.
-  - `uxai-layout-rules` for the home page rules.
-  - `uxai-acceptance-tests` for tests.
-- The skills point to `docs/` instead of copying it, so they always read the current version.
-
-Tips to keep the context small with free models:
-
-1. Start a new session for each task.
-2. Name the skill in your prompt, for example: "Use the uxai-layout-rules skill and add the fallback rule."
-3. Name the exact files the task touches instead of asking the agent to explore the whole repository.
-4. Review the diff and run the tests before you commit.
-
 ## Documentation
 
 - [Architecture](docs/architecture.md)
 - [Layout rules](docs/layout-rules.md)
 - [Acceptance criteria and traceability](docs/acceptance-criteria.md)
 - [Dataset findings](docs/dataset-findings.md)
-
-## Team
-
-| Member | Role |
-|---|---|
-| Juan Antonio | Project lead, Figma design |
-| Osiris | Data preprocessing, front end and AI integration |
-| Erik | K-Means model, QA |
-| Cristian | Documentation, change control |
