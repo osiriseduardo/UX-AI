@@ -35,7 +35,7 @@ Load before writing, running or reporting tests tied to the acceptance criteria.
 
 1. Read `docs/acceptance-criteria.md` for the exact wording.
 2. Write the test so it fails first.
-3. Run `uv run --project ml pytest`, `npm --prefix web run test`, or Playwright.
+3. Run `uv run --project ml pytest`, `pnpm --dir web test`, or Playwright.
 4. Update the traceability matrix.
 
 ## Output Contract

@@ -19,7 +19,7 @@ Always loaded. Keep it short; details live in `docs/` and load on demand.
 
 - Setup: install the tools listed in `README.md` (no setup scripts, no Makefile)
 - ML: `uv run --project ml pytest`
-- Web: `npm --prefix web run dev|test|build|lint`
+- Web: `pnpm --dir web dev|test|build|lint`. Use pnpm only; never npm or yarn, and never commit `package-lock.json` or `yarn.lock`.
 
 ## Skills (load the one that matches the task)
 

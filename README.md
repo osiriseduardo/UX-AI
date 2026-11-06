@@ -39,6 +39,7 @@ The full design, the components and the decisions are in **[docs/architecture.md
 | uv | 0.5 | https://docs.astral.sh/uv/getting-started/installation/ |
 | Python | 3.12 | `uv python install 3.12` (after installing uv) |
 | Node.js | 22.12 (any newer LTS works) | https://nodejs.org/en/download |
+| pnpm | 10 | https://pnpm.io/installation |
 
 Check them in a new terminal:
 
@@ -47,6 +48,7 @@ git --version
 uv --version
 uv python find 3.12
 node --version
+pnpm --version
 ```
 
 ### 2. Install the project dependencies
@@ -55,7 +57,7 @@ Run these from the repository root once `ml/` and `web/` exist:
 
 ```sh
 uv sync --project ml
-npm --prefix web ci
+pnpm --dir web install --frozen-lockfile
 ```
 
 ### 3. Get the dataset (only for ML work)
@@ -68,10 +70,10 @@ The dataset is not committed. Ask the team for `E-commerce_Customer_Segmentation
 |---|---|
 | Run the ML tests | `uv run --project ml pytest` |
 | Lint the Python code | `uv run --project ml ruff check ml` |
-| Start the store locally | `npm --prefix web run dev` |
-| Run the web unit tests | `npm --prefix web run test` |
-| Build the static site | `npm --prefix web run build` |
-| Lint the web code | `npm --prefix web run lint` |
+| Start the store locally | `pnpm --dir web dev` |
+| Run the web unit tests | `pnpm --dir web test` |
+| Build the static site | `pnpm --dir web build` |
+| Lint the web code | `pnpm --dir web lint` |
 
 ## Documentation
 

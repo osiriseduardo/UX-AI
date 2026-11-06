@@ -31,7 +31,7 @@ ml/data/raw/*.csv ──► ml/ (Python, offline) ──► web/public/data/*.js
 |---|---|---|
 | `ml/` | Load the dataset, build features, train K-Means, compute CA-01' metrics, export artifacts | Python 3.12, uv, pandas, scikit-learn, pytest, ruff |
 | `contracts/` | JSON schema for the exported artifacts, plus an example file | JSON Schema |
-| `web/` | Profile selector, rule engine, responsive store UI, AI notice | Vite, React, TypeScript, Vitest, Playwright, axe |
+| `web/` | Profile selector, rule engine, responsive store UI, AI notice | pnpm, Vite, React, TypeScript, Vitest, Playwright, axe |
 | `docs/` | This file, layout rules, acceptance criteria, dataset findings | Markdown |
 
 ### Category model (`ml/`)

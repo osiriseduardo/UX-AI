@@ -36,7 +36,7 @@ Load before changing how the Home/Dashboard is arranged in `web/`.
 1. Read `docs/layout-rules.md`.
 2. Write failing Vitest cases for every rule and the fallback.
 3. Implement until green, then wire components.
-4. Run `npm --prefix web run test` and `npm --prefix web run build`.
+4. Run `pnpm --dir web test` and `pnpm --dir web build`.
 
 ## Output Contract
 
