@@ -1,0 +1,7 @@
+# Minimum tool versions required by UX-AI.
+# Read by scripts/setup.sh (macOS/Linux) and scripts/setup.ps1 (Windows).
+# Format: <tool> <minimum-version>
+git     2.30
+uv      0.5
+python  3.12
+node    22.12
