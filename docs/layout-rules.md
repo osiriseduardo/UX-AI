@@ -1,8 +1,10 @@
-# Segment → layout rule table
+# Layout rules
 
-> **Status: PROPOSED.** The team has not confirmed this mapping. Confirm or edit it before implementing, and keep this file and the tests in sync.
+> **Status: CONFIRMED** (2026-11-06). Any change to this mapping needs team agreement; keep this file and the tests in sync.
 
-Inputs come from the exported profile artifact. `activity_status` and `behavior_segment` are fixed thresholds over recency and purchase count (see `uxai-ml-pipeline/references/dataset-findings.md`). They are business segments, not model outputs.
+Scope: these rules arrange only the Home/Dashboard view. The Category detail and Profile screens have a fixed layout; only their content changes with the selected category or customer. Products shown in every section are mock data filtered by category (the dataset has no product catalog).
+
+Inputs come from the exported profile artifact. `activity_status` and `behavior_segment` are fixed thresholds over recency and purchase count (see [`dataset-findings.md`](dataset-findings.md)). They are business segments, not model outputs.
 
 ## Rules (first match wins)
 
@@ -28,3 +30,7 @@ The Hero is always the priority #1 category (CA-03). The variant decides what th
 | `DEFAULT_POPULAR` | Global best sellers (no personalization) | Categories by global popularity |
 
 Categories #2–#4 from the ranking fill the secondary category blocks in rank order.
+
+## Responsive behavior
+
+The page must work on desktop and mobile. On mobile the same order applies in a single column: the Hero spans the full width at the top (which still satisfies CA-03's > 40%) and the secondary sections stack below it in variant order.

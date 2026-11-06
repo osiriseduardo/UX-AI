@@ -42,4 +42,4 @@ With affinity features and k=12: ARI across seeds = 1.00, 12/12 distinct top-4 r
 
 ## Acceptance criterion (modified)
 
-CA-01': silhouette ≥ 0.40, ARI ≥ 0.90 across 3 seeds, and a distinct priority 1–4 ranking per cluster. This replaces the original silhouette ≥ 0.50; the change request to the sponsor is pending.
+CA-01': silhouette ≥ 0.40, ARI ≥ 0.90 across 3 seeds, and a distinct priority 1–4 ranking per cluster. This replaces the original silhouette ≥ 0.50. The professor treats the project as representative; the team works with 0.414 and discusses the change with him in person.
