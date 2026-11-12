@@ -1,0 +1,115 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://uxai.local/contracts/artifacts.schema.json",
+  "title": "UX-AI exported artifacts",
+  "description": "Contract between ml/ and web/. Every JSON file in web/public/data/ validates against exactly one branch of this schema, selected by its 'kind' field: profiles, rankings or popularity.",
+  "oneOf": [
+    { "$ref": "#/$defs/profiles" },
+    { "$ref": "#/$defs/rankings" },
+    { "$ref": "#/$defs/popularity" }
+  ],
+  "$defs": {
+    "category": {
+      "type": "string",
+      "enum": [
+        "Automotive",
+        "Beauty",
+        "Books",
+        "Electronics",
+        "Fashion",
+        "Grocery",
+        "Health & Personal Care",
+        "Home & Kitchen",
+        "Office Supplies",
+        "Pet Supplies",
+        "Sports & Fitness",
+        "Toys"
+      ]
+    },
+    "clusterId": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 11
+    },
+    "activityStatus": {
+      "type": "string",
+      "enum": ["Active", "At Risk", "Dormant", "Inactive"]
+    },
+    "behaviorSegment": {
+      "type": "string",
+      "enum": ["Frequent Buyer", "New Buyer", "Occasional Buyer", "Regular Buyer"]
+    },
+    "profiles": {
+      "type": "object",
+      "description": "20-50 sample customers used by the profile selector.",
+      "required": ["kind", "items"],
+      "properties": {
+        "kind": { "const": "profiles" },
+        "items": {
+          "type": "array",
+          "minItems": 20,
+          "maxItems": 50,
+          "items": { "$ref": "#/$defs/profile" }
+        }
+      },
+      "additionalProperties": false
+    },
+    "profile": {
+      "type": "object",
+      "required": ["customer_id", "cluster", "activity_status", "behavior_segment"],
+      "properties": {
+        "customer_id": { "type": "string", "minLength": 1 },
+        "cluster": { "$ref": "#/$defs/clusterId" },
+        "activity_status": { "$ref": "#/$defs/activityStatus" },
+        "behavior_segment": { "$ref": "#/$defs/behaviorSegment" }
+      },
+      "additionalProperties": false
+    },
+    "rankings": {
+      "type": "object",
+      "description": "Top-4 category ranking for every cluster, priority 1 to 4 in array order.",
+      "required": ["kind", "clusters"],
+      "properties": {
+        "kind": { "const": "rankings" },
+        "clusters": {
+          "type": "array",
+          "minItems": 12,
+          "maxItems": 12,
+          "items": { "$ref": "#/$defs/clusterRanking" }
+        }
+      },
+      "additionalProperties": false
+    },
+    "clusterRanking": {
+      "type": "object",
+      "required": ["cluster", "categories"],
+      "properties": {
+        "cluster": { "$ref": "#/$defs/clusterId" },
+        "categories": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 4,
+          "items": { "$ref": "#/$defs/category" },
+          "uniqueItems": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "popularity": {
+      "type": "object",
+      "description": "Global category order, used by the default view and as the fallback.",
+      "required": ["kind", "categories"],
+      "properties": {
+        "kind": { "const": "popularity" },
+        "categories": {
+          "type": "array",
+          "minItems": 12,
+          "maxItems": 12,
+          "items": { "$ref": "#/$defs/category" },
+          "uniqueItems": true
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}
