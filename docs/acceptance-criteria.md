@@ -35,7 +35,7 @@ Team decision (2026-11-06): Figma is the design source only and lives outside th
 | Requirement | Description | Criterion | Test | Status |
 |---|---|---|---|---|
 | RF-01 | Clasificación de usuarios mediante clustering | CA-01' | `ml/tests/test_ca01_clustering.py` | pending |
-| RF-02 | Reordenamiento dinámico de secciones UI | CA-02, CA-03 | `web/e2e/ca02-reorder-time.spec.ts` | pending |
-| RF-03 | Layout adaptativo con contenedor Hero principal | CA-03 | domain Vitest + Playwright | pending |
-| RF-04 | Flujo de navegación interactiva y pruebas de usabilidad | CA-04 | `web/e2e/ca04-navigation.spec.ts` | pending |
-| RF-05 | Módulo de transparencia e indicación de automatización por IA | CA-05 | Playwright + axe | pending |
+| RF-02 | Reordenamiento dinámico de secciones UI | CA-02, CA-03 | `web/e2e/ca02-reorder-time.spec.ts` | passing |
+| RF-03 | Layout adaptativo con contenedor Hero principal | CA-03 | `web/src/domain/layout.test.ts` + `web/e2e/ca03-hero.spec.ts` | passing |
+| RF-04 | Flujo de navegación interactiva y pruebas de usabilidad | CA-04 | `web/e2e/ca04-navigation.spec.ts` | passing |
+| RF-05 | Módulo de transparencia e indicación de automatización por IA | CA-05 | `web/e2e/ca05-ai-notice.spec.ts` | passing |

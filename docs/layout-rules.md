@@ -4,6 +4,8 @@
 
 Scope: these rules arrange only the Home/Dashboard view. The Category detail and Profile screens have a fixed layout; only their content changes with the selected category or customer. Products shown in every section are mock data filtered by category (the dataset has no product catalog).
 
+The four named personas in the web UI (Carlos, Ana, Luis, Sofía) are display labels for exported profiles. They add no rules: each persona's layout still comes from this table.
+
 Inputs come from the exported profile artifact. `activity_status` and `behavior_segment` are fixed thresholds over recency and purchase count (see [`dataset-findings.md`](dataset-findings.md)). They are business segments, not model outputs.
 
 ## Rules (first match wins)
