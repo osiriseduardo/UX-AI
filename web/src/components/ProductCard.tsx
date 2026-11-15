@@ -1,4 +1,5 @@
 import type { Product } from '../domain/types';
+import { categoryLabel } from '../domain/categories';
 import { categoryHue, finalPrice, formatPrice } from '../ui/format';
 
 interface ProductCardProps {
@@ -17,15 +18,14 @@ export function ProductCard({ product, onAdd }: ProductCardProps) {
         style={{
           background: `linear-gradient(140deg, hsl(${hue} 75% 92%), hsl(${hue} 65% 82%))`,
         }}
-        aria-hidden="true"
       >
-        <span>{product.emoji}</span>
+        <img src={product.image} alt={product.name} loading="lazy" />
         {product.discount > 0 && (
           <span className="discount-tag">-{product.discount}%</span>
         )}
       </div>
       <div className="product-body">
-        <p className="product-category">{product.category}</p>
+        <p className="product-category">{categoryLabel(product.category)}</p>
         <h3>{product.name}</h3>
         <div className="product-footer">
           <p className="price">

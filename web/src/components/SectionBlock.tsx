@@ -1,4 +1,5 @@
 import type { Category, Product, SectionKind } from '../domain/types';
+import { categoryLabel } from '../domain/categories';
 import { formatPrice } from '../ui/format';
 import { ProductCard } from './ProductCard';
 
@@ -43,8 +44,13 @@ export function SectionBlock({
                 className="category-tile"
                 href={`#/categoria/${encodeURIComponent(product.category)}`}
               >
-                <span aria-hidden="true">{product.emoji}</span>
-                <strong>{product.category}</strong>
+                <img
+                  className="category-thumb"
+                  src={product.image}
+                  alt=""
+                  loading="lazy"
+                />
+                <strong>{categoryLabel(product.category)}</strong>
                 <small>
                   Desde {formatPrice(product.price)}
                 </small>
@@ -62,7 +68,7 @@ export function SectionBlock({
         <div>
           <h2 id={`section-${kind}`}>{HEADINGS[kind]}</h2>
           <p>
-            {HINTS[kind]} · <strong>{category}</strong>
+            {HINTS[kind]} · <strong>{categoryLabel(category)}</strong>
           </p>
         </div>
         <button

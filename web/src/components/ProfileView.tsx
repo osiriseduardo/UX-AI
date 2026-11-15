@@ -1,4 +1,4 @@
-import { CATEGORIES } from '../domain/categories';
+import { CATEGORIES, categoryLabel } from '../domain/categories';
 import type { Artifacts, Profile } from '../domain/types';
 import { buildLayout } from '../domain/layout';
 import type { Persona } from '../personas';
@@ -73,7 +73,9 @@ export function ProfileView({ persona, profile, artifacts }: ProfileViewProps) {
               (category, index) => (
                 <li key={category}>
                   <span className="rank">#{index + 1}</span>
-                  <a href={`#/categoria/${encodeURIComponent(category)}`}>{category}</a>
+                  <a href={`#/categoria/${encodeURIComponent(category)}`}>
+                    {categoryLabel(category)}
+                  </a>
                 </li>
               ),
             )}
@@ -82,7 +84,8 @@ export function ProfileView({ persona, profile, artifacts }: ProfileViewProps) {
       </div>
 
       <p className="catalog-note">
-        Catálogo de demostración con {CATEGORIES.length} categorías: {CATEGORIES.join(', ')}.
+        Catálogo de demostración con {CATEGORIES.length} categorías:{' '}
+        {CATEGORIES.map((category) => categoryLabel(category)).join(', ')}.
       </p>
 
       <a className="link-button" href="#/">

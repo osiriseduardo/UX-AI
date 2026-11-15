@@ -14,6 +14,7 @@ import type {
   Product,
   Profile,
 } from '../domain/types';
+import { categoryLabel } from '../domain/categories';
 import type { Persona } from '../personas';
 import { categoryHue, finalPrice, formatPrice } from '../ui/format';
 import { AiNotice } from './AiNotice';
@@ -88,7 +89,8 @@ export function Home({
     return products.filter(
       (product) =>
         product.name.toLowerCase().includes(term) ||
-        product.category.toLowerCase().includes(term),
+        product.category.toLowerCase().includes(term) ||
+        categoryLabel(product.category).toLowerCase().includes(term),
     );
   }, [query]);
 
@@ -158,8 +160,13 @@ export function Home({
                               background: `linear-gradient(140deg, hsl(${hue} 75% 94%), hsl(${hue} 65% 86%))`,
                             }}
                           >
-                            <span aria-hidden="true">{product.emoji}</span>
-                            <strong>{product.category}</strong>
+                            <img
+                              className="category-thumb"
+                              src={product.image}
+                              alt=""
+                              loading="lazy"
+                            />
+                            <strong>{categoryLabel(product.category)}</strong>
                             <small>Desde {formatPrice(finalPrice(product.price, product.discount))}</small>
                           </a>
                         </li>

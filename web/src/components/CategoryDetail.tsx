@@ -1,5 +1,5 @@
 import type { Category, Product } from '../domain/types';
-import { CATEGORIES } from '../domain/categories';
+import { CATEGORIES, categoryLabel } from '../domain/categories';
 import { categoryHue } from '../ui/format';
 import { productsByCategory } from '../mocks/products';
 import { ProductCard } from './ProductCard';
@@ -32,7 +32,7 @@ export function CategoryDetail({ slug, onAdd }: CategoryDetailProps) {
       <nav className="breadcrumb" aria-label="Ruta de navegación">
         <a href="#/">Inicio</a>
         <span aria-hidden="true">/</span>
-        <span>{category}</span>
+        <span>{categoryLabel(category as Category)}</span>
       </nav>
 
       <header
@@ -41,7 +41,7 @@ export function CategoryDetail({ slug, onAdd }: CategoryDetailProps) {
           background: `linear-gradient(140deg, hsl(${hue} 75% 94%), hsl(${hue} 65% 85%))`,
         }}
       >
-        <h1>{category}</h1>
+        <h1>{categoryLabel(category as Category)}</h1>
         <p>{items.length} productos de catálogo en esta categoría.</p>
       </header>
 

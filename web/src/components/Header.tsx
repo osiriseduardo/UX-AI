@@ -43,7 +43,7 @@ export function Header({
           <input
             id="search-input"
             type="search"
-            placeholder="Buscar productos, marcas y categorías"
+            placeholder="Buscar productos, marcas"
             value={query}
             onChange={(event) => onQuery(event.target.value)}
           />
@@ -104,11 +104,11 @@ export function Header({
         </div>
       </div>
       <nav className="category-nav" aria-label="Categorías principales">
-        <a href="#/categoria/Grocery">Súper</a>
-        <a href="#/categoria/Electronics">Tecnología</a>
+        <a href="#/categoria/Grocery">Súper y despensa</a>
+        <a href="#/categoria/Electronics">Electrónica</a>
         <a href="#/categoria/Fashion">Moda</a>
-        <a href="#/categoria/Home%20%26%20Kitchen">Hogar</a>
-        <a href="#/categoria/Sports%20%26%20Fitness">Deporte</a>
+        <a href="#/categoria/Home%20%26%20Kitchen">Hogar y cocina</a>
+        <a href="#/categoria/Sports%20%26%20Fitness">Deporte y fitness</a>
         <a href="#/categoria/Beauty">Belleza</a>
       </nav>
     </header>

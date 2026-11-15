@@ -13,7 +13,7 @@ test('CA-03 hero holds priority #1 and is wider than 40% of the dashboard', asyn
   const hero = page.getByTestId('hero');
   await expect(hero).toBeVisible();
   await expect(hero.getByRole('heading', { level: 1 })).toContainText('ofertas');
-  await expect(hero).toContainText('Grocery');
+  await expect(hero).toContainText('Súper y despensa');
 
   const ratio = await page.evaluate(() => {
     const heroBox = document.querySelector<HTMLElement>('[data-testid="hero"]');
@@ -31,7 +31,7 @@ test('CA-03 keeps the priority #1 category in the Hero on mobile', async ({ page
 
   const hero = page.getByTestId('hero');
   await expect(hero).toBeVisible();
-  await expect(hero).toContainText('Grocery');
+  await expect(hero).toContainText('Súper y despensa');
 
   const ratio = await page.evaluate(() => {
     const heroBox = document.querySelector<HTMLElement>('[data-testid="hero"]');

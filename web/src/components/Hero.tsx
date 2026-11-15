@@ -1,4 +1,5 @@
 import type { Category, HeroEmphasis, LayoutVariant, Product } from '../domain/types';
+import { categoryLabel } from '../domain/categories';
 import { finalPrice, formatPrice } from '../ui/format';
 
 interface HeroProps {
@@ -25,13 +26,14 @@ const TITLE: Record<HeroEmphasis, string> = {
 };
 
 function subtitleFor(emphasis: HeroEmphasis, category: Category): string {
+  const label = categoryLabel(category);
   switch (emphasis) {
     case 'discounts':
-      return `Descuentos de hasta 30% en tu categoría favorita: ${category}.`;
+      return `Descuentos de hasta 30% en tu categoría favorita: ${label}.`;
     case 'previousPurchases':
-      return `Repite tu compra en ${category} y sigue donde lo dejaste.`;
+      return `Repite tu compra en ${label} y sigue donde lo dejaste.`;
     case 'bestSellers':
-      return `Los favoritos de todos en ${category}, elegidos para que explores.`;
+      return `Los favoritos de todos en ${label}, elegidos para que explores.`;
     case 'globalBestSellers':
       return 'Sin personalización: los productos favoritos de toda la tienda.';
   }
@@ -61,18 +63,21 @@ export function Hero({
             className="primary-button"
             onClick={() => onOpenCategory(category)}
           >
-            Ver {category}
+            Ver {categoryLabel(category)}
           </button>
           <span className="hero-chip">Prioridad #1</span>
         </div>
       </div>
 
-      <ul className="hero-products" aria-label={`Productos destacados en ${category}`}>
+      <ul className="hero-products" aria-label={`Productos destacados en ${categoryLabel(category)}`}>
         {products.slice(0, 3).map((product) => (
           <li key={product.id} className="hero-product">
-            <span className="hero-emoji" aria-hidden="true">
-              {product.emoji}
-            </span>
+            <img
+              className="hero-thumb"
+              src={product.image}
+              alt=""
+              loading="lazy"
+            />
             <div>
               <p>{product.name}</p>
               <p className="hero-price">
