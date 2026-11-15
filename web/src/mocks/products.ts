@@ -42,16 +42,20 @@ const RAW: Array<[Category, string, number, number, string, boolean?, boolean?]>
 ];
 
 export const products: Product[] = RAW.map(
-  ([category, name, price, discount, emoji, bestSeller, previouslyBought], index) => ({
-    id: `P-${String(index + 1).padStart(3, '0')}`,
-    category,
-    name,
-    price,
-    discount,
-    emoji,
-    bestSeller,
-    previouslyBought,
-  }),
+  ([category, name, price, discount, emoji, bestSeller, previouslyBought], index) => {
+    const id = `P-${String(index + 1).padStart(3, '0')}`;
+    return {
+      id,
+      category,
+      name,
+      price,
+      discount,
+      emoji,
+      image: `${import.meta.env.BASE_URL}products/${id}.jpg`,
+      bestSeller,
+      previouslyBought,
+    };
+  },
 );
 
 export function productsByCategory(category: Category): Product[] {

@@ -33,9 +33,12 @@ export function CartPanel({ lines, onAdd, onRemove, onCheckout }: CartPanelProps
           <ul className="cart-lines">
             {lines.map(({ product, quantity }) => (
               <li key={product.id}>
-                <span className="cart-emoji" aria-hidden="true">
-                  {product.emoji}
-                </span>
+                <img
+                  className="cart-thumb"
+                  src={product.image}
+                  alt=""
+                  loading="lazy"
+                />
                 <div className="cart-line-body">
                   <p>{product.name}</p>
                   <small>

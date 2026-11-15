@@ -1,0 +1,329 @@
+{
+  "note": "Product photos from Wikipedia and Wikimedia Commons under free licenses. Review each source before public reuse.",
+  "credits": [
+    {
+      "product": "P-001",
+      "title": "Coffee bean",
+      "license": "unknown",
+      "license_url": "",
+      "creator": "",
+      "source": "https://en.wikipedia.org/wiki/Coffee%20bean",
+      "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c5/Roasted_coffee_beans.jpg/960px-Roasted_coffee_beans.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "product": "P-002",
+      "title": "Snack",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "creator": "ImGz",
+      "source": "https://en.wikipedia.org/wiki/Snack",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/9/91/Gorp.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "product": "P-003",
+      "title": "Olive oil",
+      "license": "unknown",
+      "license_url": "",
+      "creator": "",
+      "source": "https://en.wikipedia.org/wiki/Olive%20oil",
+      "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0e/Oliven_V1.jpg/960px-Oliven_V1.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "product": "P-004",
+      "title": "Book",
+      "license": "unknown",
+      "license_url": "",
+      "creator": "",
+      "source": "https://en.wikipedia.org/wiki/Book",
+      "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b6/Gutenberg_Bible%2C_Lenox_Copy%2C_New_York_Public_Library%2C_2009._Pic_01.jpg/960px-Gutenberg_Bible%2C_Lenox_Copy%2C_New_York_Public_Library%2C_2009._Pic_01.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "product": "P-005",
+      "title": "File:Old Books 02.JPG",
+      "license": "CC0",
+      "license_url": "https://commons.wikimedia.org/wiki/File%3AOld%20Books%2002.JPG",
+      "creator": "Wikimedia Commons contributor",
+      "source": "https://commons.wikimedia.org/wiki/File%3AOld%20Books%2002.JPG",
+      "image_url": ""
+    },
+    {
+      "product": "P-006",
+      "title": "Wikimedia Commons laptop photo",
+      "license": "CC BY-SA",
+      "license_url": "https://commons.wikimedia.org/",
+      "creator": "Wikimedia Commons contributor",
+      "source": "https://commons.wikimedia.org/",
+      "image_url": ""
+    },
+    {
+      "product": "P-007",
+      "title": "Wikimedia Commons protein powder products",
+      "license": "CC BY-SA",
+      "license_url": "https://commons.wikimedia.org/",
+      "creator": "Wikimedia Commons contributor",
+      "source": "https://commons.wikimedia.org/",
+      "image_url": ""
+    },
+    {
+      "product": "P-008",
+      "title": "File:Fitness mats (51543374690).jpg",
+      "license": "CC BY-SA 2.0",
+      "license_url": "https://commons.wikimedia.org/wiki/File%3AFitness%20mats%20(51543374690).jpg",
+      "creator": "Wikimedia Commons contributor",
+      "source": "https://commons.wikimedia.org/wiki/File%3AFitness%20mats%20(51543374690).jpg",
+      "image_url": ""
+    },
+    {
+      "product": "P-009",
+      "title": "Dumbbell",
+      "license": "CC BY-SA 3.0",
+      "license_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+      "creator": "",
+      "source": "https://en.wikipedia.org/wiki/Dumbbell",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/e/e3/TwoDumbbells.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "product": "P-010",
+      "title": "Frying pan",
+      "license": "unknown",
+      "license_url": "",
+      "creator": "",
+      "source": "https://en.wikipedia.org/wiki/Frying%20pan",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/5/5c/Pfanne_%28Edelstahl%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "product": "P-011",
+      "title": "File:Ardenwood and Patterson House, Fremont (2015-07-25 13.02.41 by Emily Ramos).jpg",
+      "license": "CC BY 2.0",
+      "license_url": "https://commons.wikimedia.org/wiki/File%3AArdenwood%20and%20Patterson%20House%2C%20Fremont%20(2015-07-25%2013.02.41%20by%20Emily%20Ramos).jpg",
+      "creator": "Wikimedia Commons contributor",
+      "source": "https://commons.wikimedia.org/wiki/File%3AArdenwood%20and%20Patterson%20House%2C%20Fremont%20(2015-07-25%2013.02.41%20by%20Emily%20Ramos).jpg",
+      "image_url": ""
+    },
+    {
+      "product": "P-012",
+      "title": "Coffeemaker",
+      "license": "unknown",
+      "license_url": "",
+      "creator": "",
+      "source": "https://en.wikipedia.org/wiki/Coffeemaker",
+      "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cd/Moka_Express_sideview.png/960px-Moka_Express_sideview.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "product": "P-013",
+      "title": "Raincoat",
+      "license": "unknown",
+      "license_url": "",
+      "creator": "",
+      "source": "https://en.wikipedia.org/wiki/Raincoat",
+      "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c3/David_Julian_Kirchner_%28cropped%29.jpg/960px-David_Julian_Kirchner_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "product": "P-014",
+      "title": "Sneakers",
+      "license": "unknown",
+      "license_url": "",
+      "creator": "",
+      "source": "https://en.wikipedia.org/wiki/Sneakers",
+      "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/59/Air_Jordan_1_Banned.jpg/960px-Air_Jordan_1_Banned.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "product": "P-015",
+      "title": "Backpack",
+      "license": "CC BY-SA 3.0",
+      "license_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+      "creator": "de:Benutzer:sjr",
+      "source": "https://en.wikipedia.org/wiki/Backpack",
+      "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d7/Rucksack1.jpg/960px-Rucksack1.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "product": "P-016",
+      "title": "Headphones",
+      "license": "unknown",
+      "license_url": "",
+      "creator": "",
+      "source": "https://en.wikipedia.org/wiki/Headphones",
+      "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/00/S%C5%82uchawki_referencyjne_K-701_firmy_AKG.jpg/960px-S%C5%82uchawki_referencyjne_K-701_firmy_AKG.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "product": "P-017",
+      "title": "File:IWatch.png",
+      "license": "Public domain",
+      "license_url": "https://commons.wikimedia.org/wiki/File%3AIWatch.png",
+      "creator": "Wikimedia Commons contributor",
+      "source": "https://commons.wikimedia.org/wiki/File%3AIWatch.png",
+      "image_url": ""
+    },
+    {
+      "product": "P-018",
+      "title": "USB-C",
+      "license": "unknown",
+      "license_url": "",
+      "creator": "",
+      "source": "https://en.wikipedia.org/wiki/USB-C",
+      "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e8/USB-C_plug%2C_focus_stacked.jpg/960px-USB-C_plug%2C_focus_stacked.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "product": "P-019",
+      "title": "Wikimedia Commons skin care products",
+      "license": "CC BY-SA",
+      "license_url": "https://commons.wikimedia.org/",
+      "creator": "Wikimedia Commons contributor",
+      "source": "https://commons.wikimedia.org/",
+      "image_url": ""
+    },
+    {
+      "product": "P-020",
+      "title": "Makeup brush",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "creator": "DamianKrzyzanowski",
+      "source": "https://en.wikipedia.org/wiki/Makeup%20brush",
+      "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4f/Makeup-brushes.tif/lossy-page1-960px-Makeup-brushes.tif.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "product": "P-021",
+      "title": "Wikimedia Commons sunscreening agents",
+      "license": "CC BY-SA",
+      "license_url": "https://commons.wikimedia.org/",
+      "creator": "Wikimedia Commons contributor",
+      "source": "https://commons.wikimedia.org/",
+      "image_url": ""
+    },
+    {
+      "product": "P-022",
+      "title": "Multivitamin",
+      "license": "unknown",
+      "license_url": "",
+      "creator": "",
+      "source": "https://en.wikipedia.org/wiki/Multivitamin",
+      "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/66/B_vitamin_supplement_tablets.jpg/960px-B_vitamin_supplement_tablets.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "product": "P-023",
+      "title": "Electric toothbrush",
+      "license": "unknown",
+      "license_url": "",
+      "creator": "",
+      "source": "https://en.wikipedia.org/wiki/Electric%20toothbrush",
+      "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e8/Electric_toothbrush_on_a_white_background.jpg/960px-Electric_toothbrush_on_a_white_background.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "product": "P-024",
+      "title": "File:Health o meter Bathroom Scale.JPG",
+      "license": "CC BY 3.0",
+      "license_url": "https://commons.wikimedia.org/wiki/File%3AHealth%20o%20meter%20Bathroom%20Scale.JPG",
+      "creator": "Wikimedia Commons contributor",
+      "source": "https://commons.wikimedia.org/wiki/File%3AHealth%20o%20meter%20Bathroom%20Scale.JPG",
+      "image_url": ""
+    },
+    {
+      "product": "P-025",
+      "title": "Notebook",
+      "license": "CC BY 2.0",
+      "license_url": "https://creativecommons.org/licenses/by/2.0",
+      "creator": "L.Marie",
+      "source": "https://en.wikipedia.org/wiki/Notebook",
+      "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ea/Notebooks.jpg/960px-Notebooks.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "product": "P-026",
+      "title": "Gel pen",
+      "license": "unknown",
+      "license_url": "",
+      "creator": "",
+      "source": "https://en.wikipedia.org/wiki/Gel%20pen",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/9/9d/Gelpen_cylindric_tip_detail.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "product": "P-027",
+      "title": "File:A desk lamp.jpg",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://commons.wikimedia.org/wiki/File%3AA%20desk%20lamp.jpg",
+      "creator": "Wikimedia Commons contributor",
+      "source": "https://commons.wikimedia.org/wiki/File%3AA%20desk%20lamp.jpg",
+      "image_url": ""
+    },
+    {
+      "product": "P-028",
+      "title": "File:1328687024 u-135-ris.2.jpg",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://commons.wikimedia.org/wiki/File%3A1328687024%20u-135-ris.2.jpg",
+      "creator": "Wikimedia Commons contributor",
+      "source": "https://commons.wikimedia.org/wiki/File%3A1328687024%20u-135-ris.2.jpg",
+      "image_url": ""
+    },
+    {
+      "product": "P-029",
+      "title": "Vacuum cleaner",
+      "license": "unknown",
+      "license_url": "",
+      "creator": "",
+      "source": "https://en.wikipedia.org/wiki/Vacuum%20cleaner",
+      "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7a/Numatic_Henry_vacuum_cleaner_%283308986870%29_%28cropped%29.jpg/960px-Numatic_Henry_vacuum_cleaner_%283308986870%29_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "product": "P-030",
+      "title": "File:20220922杭州地铁19号线无线充电座.jpg",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://commons.wikimedia.org/wiki/File%3A20220922%E6%9D%AD%E5%B7%9E%E5%9C%B0%E9%93%8119%E5%8F%B7%E7%BA%BF%E6%97%A0%E7%BA%BF%E5%85%85%E7%94%B5%E5%BA%A7.jpg",
+      "creator": "Wikimedia Commons contributor",
+      "source": "https://commons.wikimedia.org/wiki/File%3A20220922%E6%9D%AD%E5%B7%9E%E5%9C%B0%E9%93%8119%E5%8F%B7%E7%BA%BF%E6%97%A0%E7%BA%BF%E5%85%85%E7%94%B5%E5%BA%A7.jpg",
+      "image_url": ""
+    },
+    {
+      "product": "P-031",
+      "title": "Dog food",
+      "license": "unknown",
+      "license_url": "",
+      "creator": "",
+      "source": "https://en.wikipedia.org/wiki/Dog%20food",
+      "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/71/Dog_food_in_a_bowl.jpg/960px-Dog_food_in_a_bowl.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "product": "P-032",
+      "title": "Dog bed",
+      "license": "CC BY-SA 3.0",
+      "license_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+      "creator": "Earth68",
+      "source": "https://en.wikipedia.org/wiki/Dog%20bed",
+      "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4b/Burmakatzen-haufen.JPG/960px-Burmakatzen-haufen.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "product": "P-033",
+      "title": "Dog toy",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "creator": "Joshuary",
+      "source": "https://en.wikipedia.org/wiki/Dog%20toy",
+      "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5a/Dogwithtoy.jpg/960px-Dogwithtoy.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "product": "P-034",
+      "title": "Toy block",
+      "license": "Public domain",
+      "license_url": "",
+      "creator": "",
+      "source": "https://en.wikipedia.org/wiki/Toy%20block",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/2/22/Toyblocks.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+    },
+    {
+      "product": "P-035",
+      "title": "Jigsaw puzzle",
+      "license": "unknown",
+      "license_url": "",
+      "creator": "",
+      "source": "https://en.wikipedia.org/wiki/Jigsaw%20puzzle",
+      "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/66/Jigsaw_puzzle_01_by_Scouten.jpg/960px-Jigsaw_puzzle_01_by_Scouten.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    },
+    {
+      "product": "P-036",
+      "title": "Quadcopter",
+      "license": "unknown",
+      "license_url": "",
+      "creator": "",
+      "source": "https://en.wikipedia.org/wiki/Quadcopter",
+      "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6a/Quadcopter_camera_drone_in_flight.jpg/960px-Quadcopter_camera_drone_in_flight.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+    }
+  ]
+}

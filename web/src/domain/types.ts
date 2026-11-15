@@ -81,6 +81,7 @@ export interface Product {
   price: number;
   discount: number;
   emoji: string;
+  image: string;
   bestSeller?: boolean;
   previouslyBought?: boolean;
 }
