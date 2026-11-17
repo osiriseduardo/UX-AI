@@ -6,9 +6,9 @@ import { expect, test } from '@playwright/test';
 test('CA-04 dashboard and category detail navigate both ways', async ({ page }) => {
   await page.goto('/');
 
-  await page.getByRole('link', { name: 'Electrónica', exact: true }).click();
-  await expect(page).toHaveURL(/#\/categoria\/Electronics/);
-  await expect(page.getByRole('heading', { level: 1, name: 'Electrónica' })).toBeVisible();
+  await page.getByRole('button', { name: 'Ver todo →' }).first().click();
+  await expect(page).toHaveURL(/#\/categoria\//);
+  await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
 
   await page.getByRole('link', { name: /Volver al dashboard/ }).click();
   await expect(page).toHaveURL(/#\/$/);

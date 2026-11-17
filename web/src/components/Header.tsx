@@ -103,14 +103,7 @@ export function Header({
           </button>
         </div>
       </div>
-      <nav className="category-nav" aria-label="Categorías principales">
-        <a href="#/categoria/Grocery">Súper y despensa</a>
-        <a href="#/categoria/Electronics">Electrónica</a>
-        <a href="#/categoria/Fashion">Moda</a>
-        <a href="#/categoria/Home%20%26%20Kitchen">Hogar y cocina</a>
-        <a href="#/categoria/Sports%20%26%20Fitness">Deporte y fitness</a>
-        <a href="#/categoria/Beauty">Belleza</a>
-      </nav>
+
     </header>
   );
 }

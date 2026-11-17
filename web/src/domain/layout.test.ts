@@ -89,6 +89,7 @@ describe('buildLayout', () => {
   it('marks the default view as not personalized', () => {
     expect(buildLayout(null)).toMatchObject({
       variant: 'DEFAULT_POPULAR',
+      sections: ['suggestions'],
       isPersonalized: false,
     });
   });

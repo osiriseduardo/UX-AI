@@ -55,7 +55,7 @@ const LAYOUTS: Record<LayoutVariant, Omit<Layout, 'variant'>> = {
   },
   DEFAULT_POPULAR: {
     heroEmphasis: 'globalBestSellers',
-    sections: ['categories'],
+    sections: ['suggestions'],
     isPersonalized: false,
   },
 };

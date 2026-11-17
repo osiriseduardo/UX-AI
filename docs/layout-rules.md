@@ -29,7 +29,7 @@ The Hero is always the priority #1 category (CA-03). The variant decides what th
 | `OFERTAS_PRIMERO` | Discounted products in category #1 | Offers · Suggestions · Keep shopping |
 | `RECOMPRA_PRIMERO` | Previously bought items in category #1 | Keep shopping · Suggestions · Offers |
 | `EXPLORACION` | Best sellers in category #1 | Suggestions · Offers · Keep shopping |
-| `DEFAULT_POPULAR` | Global best sellers (no personalization) | Categories by global popularity |
+| `DEFAULT_POPULAR` | Global best sellers (no personalization) | Recommendations by global popularity |
 
 Categories #2–#4 from the ranking fill the secondary category blocks in rank order.
 

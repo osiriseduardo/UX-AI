@@ -16,7 +16,6 @@ import type {
 } from '../domain/types';
 import { categoryLabel } from '../domain/categories';
 import type { Persona } from '../personas';
-import { categoryHue, finalPrice, formatPrice } from '../ui/format';
 import { AiNotice } from './AiNotice';
 import { CartPanel, type CartLine } from './CartPanel';
 import { Hero } from './Hero';
@@ -129,7 +128,7 @@ export function Home({
               />
             ) : (
               <p className="default-note">
-                Vista predeterminada · categorías y productos por popularidad global
+                Vista predeterminada · productos por popularidad global
               </p>
             )}
 
@@ -143,39 +142,6 @@ export function Home({
             />
 
             {layout.sections.map((kind, index) => {
-              if (kind === 'categories') {
-                const popular = artifacts.popularity.categories
-                  .map((category) => productsByCategory(category)[0])
-                  .filter((product): product is Product => Boolean(product));
-                return (
-                  <ul className="section-block category-strip" key={kind} aria-label="Categorías populares">
-                    {popular.map((product) => {
-                      const hue = categoryHue(product.category);
-                      return (
-                        <li key={product.category}>
-                          <a
-                            className="category-pill"
-                            href={`#/categoria/${encodeURIComponent(product.category)}`}
-                            style={{
-                              background: `linear-gradient(140deg, hsl(${hue} 75% 94%), hsl(${hue} 65% 86%))`,
-                            }}
-                          >
-                            <img
-                              className="category-thumb"
-                              src={product.image}
-                              alt=""
-                              loading="lazy"
-                            />
-                            <strong>{categoryLabel(product.category)}</strong>
-                            <small>Desde {formatPrice(finalPrice(product.price, product.discount))}</small>
-                          </a>
-                        </li>
-                      );
-                    })}
-                  </ul>
-                );
-              }
-
               const category = ranking[index + 1] ?? ranking[index];
               const list =
                 kind === 'offers'
