@@ -54,6 +54,7 @@ ml/data/raw/*.csv ──► ml/ (Python, offline) ──► web/public/data/*.js
 - `src/domain/`: pure TypeScript, with no React and no I/O. It holds the rule engine `profile → LayoutVariant` and its tests.
 - `src/components/`: presentational React components. They call domain functions and never repeat the rules.
 - `src/mocks/`: the mock product catalog, grouped by category. The dataset has no products.
+- The profile selector offers the four personas from the Figma design (Carlos, Ana, Luis, Sofía) mapped onto exported dataset profiles. The names are display labels only: the rule table still picks every variant. Ana is a guest with no history, so she exercises `DEFAULT_POPULAR` plus the cart reminder.
 - Screens:
   - **Home/Dashboard**: arranged by the rules.
   - **Category detail** and **Profile**: fixed layout; only the content changes.
@@ -79,3 +80,4 @@ Each acceptance criterion (CA-01'..CA-05) maps to an automated test; see [`accep
 | 2026-11-06 | Layout rule table confirmed; it applies only to Home/Dashboard. |
 | 2026-11-06 | Products are mock data; the UI is responsive (desktop and mobile). |
 | 2026-11-06 | Figma is the design source only, outside the repo; CA-04 navigation is verified in the web app. |
+| 2026-11-14 | The UI shows the four Figma personas (Carlos, Ana, Luis, Sofía) as labels over exported profiles; Ana is a guest that demonstrates `DEFAULT_POPULAR` and the cart reminder. No new layout variants. |
