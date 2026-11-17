@@ -1,16 +1,20 @@
-import type { Profile } from './domain/types';
+import { resolveVariant } from './domain/layout';
+import type { LayoutVariant, Profile } from './domain/types';
 
 /**
- * The four Figma personas, mapped onto real dataset profiles so the rule
- * table still decides each layout. Ana has no history (guest), which is the
- * documented `DEFAULT_POPULAR` fallback and shows her cart reminder.
+ * The four Figma personas, matched to dataset profiles by the layout variant
+ * the rule table assigns, never by a hard-coded customer id: re-exporting the
+ * model cannot silently turn a persona into a guest.
+ * Ana has no history (guest), which is the documented `DEFAULT_POPULAR`
+ * fallback and shows her cart reminder.
  */
 export interface Persona {
   id: string;
   name: string;
   initial: string;
   tagline: string;
-  customerId: string | null;
+  /** Layout the persona must land on; `null` means intentional guest. */
+  expectedVariant: LayoutVariant | null;
   cartItems: string[];
 }
 
@@ -20,7 +24,7 @@ export const personas: Persona[] = [
     name: 'Carlos',
     initial: 'C',
     tagline: 'Cazador de ofertas',
-    customerId: 'CUST-000012',
+    expectedVariant: 'OFERTAS_PRIMERO',
     cartItems: ['P-001', 'P-008'],
   },
   {
@@ -28,15 +32,15 @@ export const personas: Persona[] = [
     name: 'Ana',
     initial: 'A',
     tagline: 'Invitada con carrito pendiente',
-    customerId: null,
+    expectedVariant: null,
     cartItems: ['P-016', 'P-030'],
   },
   {
     id: 'luis',
     name: 'Luis',
     initial: 'L',
-    tagline: 'Rutina de entrenamiento',
-    customerId: 'CUST-000029',
+    tagline: 'Comprador frecuente',
+    expectedVariant: 'RECOMPRA_PRIMERO',
     cartItems: [],
   },
   {
@@ -44,7 +48,7 @@ export const personas: Persona[] = [
     name: 'Sofía',
     initial: 'S',
     tagline: 'Explorando nuevas categorías',
-    customerId: 'CUST-000014',
+    expectedVariant: 'EXPLORACION',
     cartItems: [],
   },
 ];
@@ -53,7 +57,16 @@ export function findPersona(id: string | null | undefined): Persona {
   return personas.find((persona) => persona.id === id) ?? personas[1];
 }
 
+/**
+ * First profile whose resolved variant matches the persona's expected layout.
+ * Returns `null` when the persona is a guest or when the export has no profile
+ * for that variant; the caller decides how to surface the gap.
+ */
 export function profileFor(persona: Persona, profiles: Profile[]): Profile | null {
-  if (!persona.customerId) return null;
-  return profiles.find((profile) => profile.customer_id === persona.customerId) ?? null;
+  if (!persona.expectedVariant) return null;
+  return (
+    profiles.find(
+      (profile) => resolveVariant(profile) === persona.expectedVariant,
+    ) ?? null
+  );
 }

@@ -44,6 +44,7 @@ export default function App() {
     [artifacts, persona],
   );
   const layout = useMemo(() => buildLayout(profile, restored), [profile, restored]);
+  const missingProfile = persona.expectedVariant !== null && profile === null;
 
   const cartLines = useMemo<CartLine[]>(
     () =>
@@ -131,21 +132,30 @@ export default function App() {
         <Route
           path="/"
           element={
-            <Home
-              artifacts={artifacts}
-              persona={persona}
-              profile={profile}
-              layout={layout}
-              restored={restored}
-              query={query}
-              cartLines={cartLines}
-              onAdd={addToCart}
-              onRemove={removeFromCart}
-              onCheckout={() => setToast('Pedido simulado: no se procesa ningún pago real')}
-              onRestore={() => setRestored(true)}
-              onUndoRestore={() => setRestored(false)}
-              onOpenCategory={openCategory}
-            />
+            <>
+              {missingProfile && (
+                <p className="profile-error" role="alert">
+                  Ningún perfil exportado coincide con la variante{' '}
+                  {persona.expectedVariant} de {persona.name}: se muestra la vista
+                  de invitada. Vuelve a exportar los artefactos del modelo.
+                </p>
+              )}
+              <Home
+                artifacts={artifacts}
+                persona={persona}
+                profile={profile}
+                layout={layout}
+                restored={restored}
+                query={query}
+                cartLines={cartLines}
+                onAdd={addToCart}
+                onRemove={removeFromCart}
+                onCheckout={() => setToast('Pedido simulado: no se procesa ningún pago real')}
+                onRestore={() => setRestored(true)}
+                onUndoRestore={() => setRestored(false)}
+                onOpenCategory={openCategory}
+              />
+            </>
           }
         />
         <Route
