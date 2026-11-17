@@ -65,7 +65,7 @@ export type HeroEmphasis =
   | 'bestSellers'
   | 'globalBestSellers';
 
-export type SectionKind = 'offers' | 'suggestions' | 'keepShopping';
+export type SectionKind = 'offers' | 'suggestions' | 'keepShopping' | 'categories';
 
 export interface Layout {
   variant: LayoutVariant;

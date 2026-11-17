@@ -1,6 +1,6 @@
 import { CATEGORIES, categoryLabel } from '../domain/categories';
 import type { Artifacts, Profile } from '../domain/types';
-import { buildLayout } from '../domain/layout';
+import { arrangeHome } from '../domain/arrangement';
 import type { Persona } from '../personas';
 
 interface ProfileViewProps {
@@ -10,10 +10,8 @@ interface ProfileViewProps {
 }
 
 export function ProfileView({ persona, profile, artifacts }: ProfileViewProps) {
-  const layout = buildLayout(profile);
-  const ranking = profile
-    ? artifacts.rankings.clusters.find((cluster) => cluster.cluster === profile.cluster)
-    : undefined;
+  // The profile page reports the design the rules assign, not the restored view.
+  const { layout, ranking } = arrangeHome(profile, artifacts.rankings, artifacts.popularity);
 
   return (
     <main className="standalone">
@@ -69,7 +67,7 @@ export function ProfileView({ persona, profile, artifacts }: ProfileViewProps) {
         <section className="info-card" aria-labelledby="ranking-data">
           <h2 id="ranking-data">Categorías por prioridad</h2>
           <ol className="ranking-list">
-            {(ranking?.categories ?? artifacts.popularity.categories.slice(0, 4)).map(
+            {ranking.slice(0, 4).map(
               (category, index) => (
                 <li key={category}>
                   <span className="rank">#{index + 1}</span>

@@ -1,16 +1,35 @@
 import type {
+  ActivityStatus,
+  BehaviorSegment,
   Layout,
   LayoutVariant,
   Profile,
   SectionKind,
 } from './types';
 
+const ACTIVITY_STATUSES: readonly ActivityStatus[] = ['Active', 'At Risk', 'Dormant', 'Inactive'];
+
+const BEHAVIOR_SEGMENTS: readonly BehaviorSegment[] = [
+  'Frequent Buyer',
+  'New Buyer',
+  'Occasional Buyer',
+  'Regular Buyer',
+];
+
+/** Rule 1: a profile with any value outside the contract counts as unknown. */
+function isKnownProfile(profile: Profile): boolean {
+  return (
+    ACTIVITY_STATUSES.includes(profile.activity_status) &&
+    BEHAVIOR_SEGMENTS.includes(profile.behavior_segment)
+  );
+}
+
 /**
  * Rule table from `docs/layout-rules.md` (first match wins).
  * Pure function: profile -> LayoutVariant. No React, no I/O.
  */
 export function resolveVariant(profile: Profile | null | undefined): LayoutVariant {
-  if (!profile) return 'DEFAULT_POPULAR';
+  if (!profile || !isKnownProfile(profile)) return 'DEFAULT_POPULAR';
 
   if (
     profile.activity_status === 'At Risk' ||
@@ -55,7 +74,7 @@ const LAYOUTS: Record<LayoutVariant, Omit<Layout, 'variant'>> = {
   },
   DEFAULT_POPULAR: {
     heroEmphasis: 'globalBestSellers',
-    sections: ['suggestions'],
+    sections: ['categories'],
     isPersonalized: false,
   },
 };

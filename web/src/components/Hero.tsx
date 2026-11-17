@@ -35,7 +35,7 @@ function subtitleFor(emphasis: HeroEmphasis, category: Category): string {
     case 'bestSellers':
       return `Los favoritos de todos en ${label}, elegidos para que explores.`;
     case 'globalBestSellers':
-      return 'Sin personalización: los productos favoritos de toda la tienda.';
+      return `Sin personalización: lo más vendido en ${label}, la categoría más popular de la tienda.`;
   }
 }
 
