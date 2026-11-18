@@ -10,6 +10,7 @@ import pandas as pd
 import pytest
 
 from uxai.export import (
+    DEFAULT_OUTPUT_DIR,
     build_popularity,
     build_profiles,
     build_rankings,
@@ -125,3 +126,15 @@ def test_export_writes_three_valid_artifacts(tmp_path) -> None:
     categories = documents["popularity"]["categories"]
     assert len(categories) == 12
     assert len(set(categories)) == 12
+
+
+@requires_dataset
+def test_committed_artifacts_match_a_fresh_export(tmp_path) -> None:
+    """The web app reads ``web/public/data/``; it must be exactly what the model exports.
+
+    A difference means the committed JSON is stale or was edited by hand:
+    re-run ``uv run --project ml python -m uxai.export`` and commit the result.
+    """
+    for path in export_artifacts(tmp_path):
+        committed = DEFAULT_OUTPUT_DIR / path.name
+        assert committed.read_bytes() == path.read_bytes(), f"{committed.name} is out of date"

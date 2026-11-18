@@ -67,7 +67,9 @@ The layout rules and the section order per variant are in [`layout-rules.md`](la
 
 ## Quality
 
-Each acceptance criterion (CA-01'..CA-05) maps to an automated test; see [`acceptance-criteria.md`](acceptance-criteria.md). CI runs the ML tests, the web unit tests, the build and the e2e tests on every PR to `develop`.
+Each acceptance criterion (CA-01'..CA-05) maps to an automated test; see [`acceptance-criteria.md`](acceptance-criteria.md).
+
+The chain CSV → model → committed JSON → UI is tested end to end: `ml/tests/test_export.py` asserts that `web/public/data/` equals a fresh export (skipped without the CSV), `web/src/data/committed-artifacts.test.ts` checks that every exported value has a place in the web app, and `web/e2e/integration-personas.spec.ts` checks that each persona's screen shows its assigned customer, cluster, Hero and ranking. CI runs the ML tests, the web unit tests, the build and the e2e tests on every PR to `develop`.
 
 ## Decisions
 
