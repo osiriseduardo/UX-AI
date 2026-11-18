@@ -3,6 +3,26 @@
  * one marigold accent for offers, and the shelf tag as the only signature.
  */
 
+/*
+ * Self-hosted fonts (SIL OFL 1.1, licenses next to the files) so the demo
+ * works offline. Latin subset only: it covers Spanish.
+ */
+@font-face {
+  font-family: 'Figtree';
+  font-style: normal;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url('./assets/fonts/figtree-latin.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400 500;
+  font-display: swap;
+  src: url('./assets/fonts/jetbrains-mono-latin.woff2') format('woff2');
+}
+
 :root {
   --bg: #f7f6f3;
   --surface: #ffffff;
