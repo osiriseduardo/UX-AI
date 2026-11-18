@@ -40,7 +40,7 @@ export default function App() {
 
   const persona = findPersona(personaId);
   const profile = useMemo(
-    () => (artifacts ? profileFor(persona, artifacts.profiles.items) : null),
+    () => (artifacts ? profileFor(persona, artifacts) : null),
     [artifacts, persona],
   );
   const arrangement = useMemo(
