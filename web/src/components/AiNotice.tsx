@@ -1,3 +1,5 @@
+import { ReorderIcon } from '../ui/icons';
+
 interface AiNoticeProps {
   personaName: string;
   restored: boolean;
@@ -8,9 +10,7 @@ interface AiNoticeProps {
 export function AiNotice({ personaName, restored, onRestore, onUndoRestore }: AiNoticeProps) {
   return (
     <section className="ai-notice" aria-live="polite" aria-label="Aviso de personalización automática">
-      <span className="ai-icon" aria-hidden="true">
-        ✦
-      </span>
+      <ReorderIcon className="ai-icon" size={18} />
       <div className="ai-text">
         <strong>
           {restored

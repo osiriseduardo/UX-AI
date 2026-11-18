@@ -1,5 +1,6 @@
 import type { Product } from '../domain/types';
 import { finalPrice, formatPrice } from '../ui/format';
+import { MinusIcon, PlusIcon } from '../ui/icons';
 
 export interface CartLine {
   product: Product;
@@ -18,12 +19,15 @@ export function CartPanel({ lines, onAdd, onRemove, onCheckout }: CartPanelProps
     (sum, line) => sum + finalPrice(line.product.price, line.product.discount) * line.quantity,
     0,
   );
+  const units = lines.reduce((sum, line) => sum + line.quantity, 0);
 
   return (
     <aside className="cart-panel" aria-labelledby="cart-title">
       <header className="cart-heading">
         <h2 id="cart-title">Tu carrito</h2>
-        <span className="cart-count">{lines.reduce((sum, line) => sum + line.quantity, 0)}</span>
+        <span className="cart-count">
+          {units} {units === 1 ? 'artículo' : 'artículos'}
+        </span>
       </header>
 
       {lines.length === 0 ? (
@@ -33,12 +37,7 @@ export function CartPanel({ lines, onAdd, onRemove, onCheckout }: CartPanelProps
           <ul className="cart-lines">
             {lines.map(({ product, quantity }) => (
               <li key={product.id}>
-                <img
-                  className="cart-thumb"
-                  src={product.image}
-                  alt=""
-                  loading="lazy"
-                />
+                <img className="cart-thumb" src={product.image} alt="" loading="lazy" />
                 <div className="cart-line-body">
                   <p>{product.name}</p>
                   <small>
@@ -51,14 +50,14 @@ export function CartPanel({ lines, onAdd, onRemove, onCheckout }: CartPanelProps
                     onClick={() => onAdd(product)}
                     aria-label={`Agregar otra unidad de ${product.name}`}
                   >
-                    +
+                    <PlusIcon size={14} />
                   </button>
                   <button
                     type="button"
                     onClick={() => onRemove(product.id)}
                     aria-label={`Quitar ${product.name} del carrito`}
                   >
-                    −
+                    <MinusIcon size={14} />
                   </button>
                 </div>
               </li>

@@ -35,7 +35,7 @@ for (const persona of personas) {
 
   test(`${persona.name} sees the Hero and ranking of ${source}`, async ({ page }) => {
     await page.goto('/');
-    await page.getByRole('button', { name: /Hola, / }).click();
+    await page.getByRole('button', { name: /^Perfil / }).click();
     await page.getByRole('option', { name: new RegExp(persona.name) }).click();
 
     await expect(page.getByTestId('hero')).toContainText(categoryLabel(heroCategory));

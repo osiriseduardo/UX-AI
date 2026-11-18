@@ -41,7 +41,7 @@ test('CA-05 restoring the default view drops the cluster ranking', async ({ page
 
 test('a guest without history gets the same DEFAULT_POPULAR page', async ({ page }) => {
   await page.goto('/');
-  await page.getByRole('button', { name: /Hola, Carlos/ }).click();
+  await page.getByRole('button', { name: /Perfil Carlos/ }).click();
   await page.getByRole('option', { name: /Ana/ }).click();
 
   await expectDefaultPopular(page);

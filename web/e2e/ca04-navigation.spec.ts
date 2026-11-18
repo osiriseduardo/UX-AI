@@ -10,7 +10,7 @@ test('CA-04 dashboard and category detail navigate both ways', async ({ page }) 
   await expect(page).toHaveURL(/#\/categoria\//);
   await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
 
-  await page.getByRole('link', { name: /Volver al dashboard/ }).click();
+  await page.getByRole('link', { name: /Volver al inicio/ }).click();
   await expect(page).toHaveURL(/#\/$/);
   await expect(page.getByTestId('hero')).toBeVisible();
 
@@ -18,7 +18,7 @@ test('CA-04 dashboard and category detail navigate both ways', async ({ page }) 
   await expect(page).toHaveURL(/#\/perfil\/carlos/);
   await expect(page.getByRole('heading', { level: 1, name: 'Carlos' })).toBeVisible();
 
-  await page.getByRole('link', { name: /Volver al dashboard/ }).click();
+  await page.getByRole('link', { name: /Volver al inicio/ }).click();
   await expect(page).toHaveURL(/#\/$/);
   await expect(page.getByTestId('hero')).toBeVisible();
 });

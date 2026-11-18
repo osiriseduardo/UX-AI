@@ -11,7 +11,8 @@ import type { HomeArrangement } from '../domain/arrangement';
 import type { Category, Product, Profile } from '../domain/types';
 import { categoryLabel } from '../domain/categories';
 import type { Persona } from '../personas';
-import { categoryHue, finalPrice, formatPrice } from '../ui/format';
+import { activityLabel, finalPrice, formatPrice, segmentLabel } from '../ui/format';
+import { InfoIcon } from '../ui/icons';
 import { AiNotice } from './AiNotice';
 import { CartPanel, type CartLine } from './CartPanel';
 import { Hero } from './Hero';
@@ -114,6 +115,7 @@ export function Home({
               />
             ) : (
               <p className="default-note">
+                <InfoIcon />
                 Vista predeterminada · categorías y productos por popularidad global
               </p>
             )}
@@ -138,31 +140,25 @@ export function Home({
                     key={section.kind}
                     aria-label="Categorías populares"
                   >
-                    {popular.map((product) => {
-                      const hue = categoryHue(product.category);
-                      return (
-                        <li key={product.category}>
-                          <a
-                            className="category-pill"
-                            href={`#/categoria/${encodeURIComponent(product.category)}`}
-                            style={{
-                              background: `linear-gradient(140deg, hsl(${hue} 75% 94%), hsl(${hue} 65% 86%))`,
-                            }}
-                          >
-                            <img
-                              className="category-thumb"
-                              src={product.image}
-                              alt=""
-                              loading="lazy"
-                            />
-                            <strong>{categoryLabel(product.category)}</strong>
-                            <small>
-                              Desde {formatPrice(finalPrice(product.price, product.discount))}
-                            </small>
-                          </a>
-                        </li>
-                      );
-                    })}
+                    {popular.map((product) => (
+                      <li key={product.category}>
+                        <a
+                          className="category-pill"
+                          href={`#/categoria/${encodeURIComponent(product.category)}`}
+                        >
+                          <img
+                            className="category-thumb"
+                            src={product.image}
+                            alt=""
+                            loading="lazy"
+                          />
+                          <strong>{categoryLabel(product.category)}</strong>
+                          <small>
+                            Desde {formatPrice(finalPrice(product.price, product.discount))}
+                          </small>
+                        </a>
+                      </li>
+                    ))}
                   </ul>
                 );
               }
@@ -207,19 +203,21 @@ export function Home({
           <dl>
             <div>
               <dt>Cliente</dt>
-              <dd>{profile?.customer_id ?? 'Invitada sin historial'}</dd>
+              <dd className={profile ? 'mono' : undefined}>
+                {profile?.customer_id ?? 'Invitada sin historial'}
+              </dd>
             </div>
             <div>
               <dt>Actividad</dt>
-              <dd>{profile?.activity_status ?? '—'}</dd>
+              <dd>{profile ? activityLabel(profile.activity_status) : '—'}</dd>
             </div>
             <div>
               <dt>Segmento</dt>
-              <dd>{profile?.behavior_segment ?? '—'}</dd>
+              <dd>{profile ? segmentLabel(profile.behavior_segment) : '—'}</dd>
             </div>
             <div>
               <dt>Variante</dt>
-              <dd>{layout.variant}</dd>
+              <dd className="mono">{layout.variant}</dd>
             </div>
           </dl>
           <a className="link-button" href={`#/perfil/${persona.id}`}>
