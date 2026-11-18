@@ -29,9 +29,11 @@ The Hero is always the priority #1 category (CA-03). The variant decides what th
 | `OFERTAS_PRIMERO` | Discounted products in category #1 | Offers · Suggestions · Keep shopping |
 | `RECOMPRA_PRIMERO` | Previously bought items in category #1 | Keep shopping · Suggestions · Offers |
 | `EXPLORACION` | Best sellers in category #1 | Suggestions · Offers · Keep shopping |
-| `DEFAULT_POPULAR` | Global best sellers (no personalization) | Recommendations by global popularity |
+| `DEFAULT_POPULAR` | Global best sellers (no personalization) | Categories by global popularity |
 
 Categories #2–#4 from the ranking fill the secondary category blocks in rank order.
+
+In `DEFAULT_POPULAR`, including the restored default view, "priority #1" is the first category of the global popularity order: the Hero shows its best sellers, and the customer's cluster ranking is not used anywhere on the page. A profile whose cluster has no ranking counts as unknown data (rule 1). The whole arrangement is computed by `arrangeHome` in `web/src/domain/arrangement.ts`.
 
 ## Responsive behavior
 

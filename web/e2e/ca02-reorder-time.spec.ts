@@ -8,12 +8,12 @@ test('CA-02 profile switch reorders the home page in under 1.5 s', async ({ page
   await expect(page.getByRole('heading', { name: 'Las mejores ofertas para ti' })).toBeVisible();
 
   const startedAt = Date.now();
-  await page.getByRole('button', { name: /Hola, Carlos/ }).click();
+  await page.getByRole('button', { name: /Perfil Carlos/ }).click();
   await page.getByRole('option', { name: /Sofía/ }).click();
   await expect(page.getByRole('heading', { name: 'Inspirado en tus gustos' })).toBeVisible();
   const elapsed = Date.now() - startedAt;
 
-  // The copy of the Hero changes with the variant, proving the layout reordered.
-  await expect(page.getByText('Primero para ti · Sugerencias')).toBeVisible();
+  // The Hero carries the variant the rule table assigned, proving the layout reordered.
+  await expect(page.getByTestId('hero')).toHaveAttribute('data-variant', 'EXPLORACION');
   expect(elapsed, `reorder took ${elapsed} ms`).toBeLessThan(1500);
 });

@@ -1,6 +1,5 @@
 import type { Category, Product } from '../domain/types';
 import { CATEGORIES, categoryLabel } from '../domain/categories';
-import { categoryHue } from '../ui/format';
 import { productsByCategory } from '../mocks/products';
 import { ProductCard } from './ProductCard';
 
@@ -25,7 +24,6 @@ export function CategoryDetail({ slug, onAdd }: CategoryDetailProps) {
   }
 
   const items = productsByCategory(category as Category);
-  const hue = categoryHue(category as Category);
 
   return (
     <main className="standalone">
@@ -35,14 +33,11 @@ export function CategoryDetail({ slug, onAdd }: CategoryDetailProps) {
         <span>{categoryLabel(category as Category)}</span>
       </nav>
 
-      <header
-        className="category-header"
-        style={{
-          background: `linear-gradient(140deg, hsl(${hue} 75% 94%), hsl(${hue} 65% 85%))`,
-        }}
-      >
+      <header className="category-header">
         <h1>{categoryLabel(category as Category)}</h1>
-        <p>{items.length} productos de catálogo en esta categoría.</p>
+        <p>
+          {items.length} {items.length === 1 ? 'producto' : 'productos'}
+        </p>
       </header>
 
       <div className="results-grid">
@@ -52,7 +47,7 @@ export function CategoryDetail({ slug, onAdd }: CategoryDetailProps) {
       </div>
 
       <a className="link-button" href="#/">
-        ← Volver al dashboard
+        ← Volver al inicio
       </a>
     </main>
   );

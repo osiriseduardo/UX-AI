@@ -1,2 +1,8 @@
 # Local agent tooling caches (contain machine-specific paths)
 .atl/
+
+# Raw dataset (private CSV, kept out of the public repo)
+ml/data/
+
+# Python bytecode caches
+__pycache__/

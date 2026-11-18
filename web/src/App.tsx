@@ -7,7 +7,7 @@ import { Home } from './components/Home';
 import type { CartLine } from './components/CartPanel';
 import { ProfileView } from './components/ProfileView';
 import { loadArtifacts } from './data/artifacts';
-import { buildLayout } from './domain/layout';
+import { arrangeHome } from './domain/arrangement';
 import type { Artifacts, Product } from './domain/types';
 import { findProduct } from './mocks/products';
 import { findPersona, personas, profileFor } from './personas';
@@ -40,10 +40,16 @@ export default function App() {
 
   const persona = findPersona(personaId);
   const profile = useMemo(
-    () => (artifacts ? profileFor(persona, artifacts.profiles.items) : null),
+    () => (artifacts ? profileFor(persona, artifacts) : null),
     [artifacts, persona],
   );
-  const layout = useMemo(() => buildLayout(profile, restored), [profile, restored]);
+  const arrangement = useMemo(
+    () =>
+      artifacts
+        ? arrangeHome(profile, artifacts.rankings, artifacts.popularity, restored)
+        : null,
+    [artifacts, profile, restored],
+  );
   const missingProfile = persona.expectedVariant !== null && profile === null;
 
   const cartLines = useMemo<CartLine[]>(
@@ -140,11 +146,10 @@ export default function App() {
                   de invitada. Vuelve a exportar los artefactos del modelo.
                 </p>
               )}
-              <Home
-                artifacts={artifacts}
+              {arrangement && <Home
+                arrangement={arrangement}
                 persona={persona}
                 profile={profile}
-                layout={layout}
                 restored={restored}
                 query={query}
                 cartLines={cartLines}
@@ -154,7 +159,7 @@ export default function App() {
                 onRestore={() => setRestored(true)}
                 onUndoRestore={() => setRestored(false)}
                 onOpenCategory={openCategory}
-              />
+              />}
             </>
           }
         />

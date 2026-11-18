@@ -7,15 +7,12 @@ import {
   products,
   productsByCategory,
 } from '../mocks/products';
-import type {
-  Artifacts,
-  Category,
-  Layout,
-  Product,
-  Profile,
-} from '../domain/types';
+import type { HomeArrangement } from '../domain/arrangement';
+import type { Category, Product, Profile } from '../domain/types';
 import { categoryLabel } from '../domain/categories';
 import type { Persona } from '../personas';
+import { activityLabel, finalPrice, formatPrice, segmentLabel } from '../ui/format';
+import { InfoIcon } from '../ui/icons';
 import { AiNotice } from './AiNotice';
 import { CartPanel, type CartLine } from './CartPanel';
 import { Hero } from './Hero';
@@ -23,10 +20,9 @@ import { ProductCard } from './ProductCard';
 import { SectionBlock } from './SectionBlock';
 
 interface HomeProps {
-  artifacts: Artifacts;
+  arrangement: HomeArrangement;
   persona: Persona;
   profile: Profile | null;
-  layout: Layout;
   restored: boolean;
   query: string;
   cartLines: CartLine[];
@@ -39,10 +35,9 @@ interface HomeProps {
 }
 
 export function Home({
-  artifacts,
+  arrangement,
   persona,
   profile,
-  layout,
   restored,
   query,
   cartLines,
@@ -53,15 +48,7 @@ export function Home({
   onUndoRestore,
   onOpenCategory,
 }: HomeProps) {
-  const ranking = useMemo<Category[]>(() => {
-    if (!profile) return artifacts.popularity.categories;
-    const match = artifacts.rankings.clusters.find(
-      (cluster) => cluster.cluster === profile.cluster,
-    );
-    return match?.categories ?? artifacts.popularity.categories;
-  }, [artifacts, profile]);
-
-  const heroCategory = ranking[0];
+  const { layout, heroCategory } = arrangement;
 
   const heroProducts = useMemo(() => {
     switch (layout.heroEmphasis) {
@@ -73,12 +60,12 @@ export function Home({
         const list = previousPurchases(heroCategory);
         return fillWithCategory(heroCategory, list);
       }
-      case 'bestSellers': {
+      case 'bestSellers':
+      case 'globalBestSellers': {
+        // DEFAULT_POPULAR still keeps priority #1 (global) in the Hero (CA-03).
         const list = bestSellers(heroCategory);
         return fillWithCategory(heroCategory, list);
       }
-      case 'globalBestSellers':
-        return products.filter((product) => product.bestSeller).slice(0, 3);
     }
   }, [layout.heroEmphasis, heroCategory]);
 
@@ -128,7 +115,8 @@ export function Home({
               />
             ) : (
               <p className="default-note">
-                Vista predeterminada · productos por popularidad global
+                <InfoIcon />
+                Vista predeterminada · categorías y productos por popularidad global
               </p>
             )}
 
@@ -141,8 +129,41 @@ export function Home({
               onOpenCategory={onOpenCategory}
             />
 
-            {layout.sections.map((kind, index) => {
-              const category = ranking[index + 1] ?? ranking[index];
+            {arrangement.sections.map((section) => {
+              if (section.kind === 'categories') {
+                const popular = section.categories
+                  .map((category) => productsByCategory(category)[0])
+                  .filter((product): product is Product => Boolean(product));
+                return (
+                  <ul
+                    className="section-block category-strip"
+                    key={section.kind}
+                    aria-label="Categorías populares"
+                  >
+                    {popular.map((product) => (
+                      <li key={product.category}>
+                        <a
+                          className="category-pill"
+                          href={`#/categoria/${encodeURIComponent(product.category)}`}
+                        >
+                          <img
+                            className="category-thumb"
+                            src={product.image}
+                            alt=""
+                            loading="lazy"
+                          />
+                          <strong>{categoryLabel(product.category)}</strong>
+                          <small>
+                            Desde {formatPrice(finalPrice(product.price, product.discount))}
+                          </small>
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                );
+              }
+
+              const { kind, category } = section;
               const list =
                 kind === 'offers'
                   ? discountedProducts(category)
@@ -182,19 +203,21 @@ export function Home({
           <dl>
             <div>
               <dt>Cliente</dt>
-              <dd>{profile?.customer_id ?? 'Invitada sin historial'}</dd>
+              <dd className={profile ? 'mono' : undefined}>
+                {profile?.customer_id ?? 'Invitada sin historial'}
+              </dd>
             </div>
             <div>
               <dt>Actividad</dt>
-              <dd>{profile?.activity_status ?? '—'}</dd>
+              <dd>{profile ? activityLabel(profile.activity_status) : '—'}</dd>
             </div>
             <div>
               <dt>Segmento</dt>
-              <dd>{profile?.behavior_segment ?? '—'}</dd>
+              <dd>{profile ? segmentLabel(profile.behavior_segment) : '—'}</dd>
             </div>
             <div>
               <dt>Variante</dt>
-              <dd>{layout.variant}</dd>
+              <dd className="mono">{layout.variant}</dd>
             </div>
           </dl>
           <a className="link-button" href={`#/perfil/${persona.id}`}>

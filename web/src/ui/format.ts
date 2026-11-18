@@ -1,22 +1,29 @@
-import type { Category } from '../domain/types';
+import type { ActivityStatus, BehaviorSegment } from '../domain/types';
 
-const HUES: Record<Category, number> = {
-  Automotive: 210,
-  Beauty: 330,
-  Books: 25,
-  Electronics: 265,
-  Fashion: 350,
-  Grocery: 140,
-  'Health & Personal Care': 175,
-  'Home & Kitchen': 40,
-  'Office Supplies': 200,
-  'Pet Supplies': 95,
-  'Sports & Fitness': 220,
-  Toys: 15,
+/**
+ * Canonical profile values stay in English (the contract and the model).
+ * These are the labels the user sees.
+ */
+const ACTIVITY_LABELS: Record<ActivityStatus, string> = {
+  Active: 'Activo',
+  'At Risk': 'En riesgo',
+  Dormant: 'Latente',
+  Inactive: 'Inactivo',
 };
 
-export function categoryHue(category: Category): number {
-  return HUES[category] ?? 220;
+const SEGMENT_LABELS: Record<BehaviorSegment, string> = {
+  'Frequent Buyer': 'Compra frecuente',
+  'New Buyer': 'Cliente nuevo',
+  'Occasional Buyer': 'Compra ocasional',
+  'Regular Buyer': 'Compra regular',
+};
+
+export function activityLabel(status: ActivityStatus): string {
+  return ACTIVITY_LABELS[status] ?? status;
+}
+
+export function segmentLabel(segment: BehaviorSegment): string {
+  return SEGMENT_LABELS[segment] ?? segment;
 }
 
 export function formatPrice(value: number): string {

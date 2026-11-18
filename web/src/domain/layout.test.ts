@@ -53,6 +53,14 @@ describe('resolveVariant', () => {
     ).toBe('OFERTAS_PRIMERO');
   });
 
+  it('returns DEFAULT_POPULAR for an unknown activity_status value (rule 1)', () => {
+    const unknown = {
+      ...profile(),
+      activity_status: 'Unknown' as Profile['activity_status'],
+    };
+    expect(resolveVariant(unknown)).toBe('DEFAULT_POPULAR');
+  });
+
   it('returns DEFAULT_POPULAR for an unknown segment value', () => {
     const unknown = {
       ...profile(),
@@ -89,7 +97,8 @@ describe('buildLayout', () => {
   it('marks the default view as not personalized', () => {
     expect(buildLayout(null)).toMatchObject({
       variant: 'DEFAULT_POPULAR',
-      sections: ['suggestions'],
+      heroEmphasis: 'globalBestSellers',
+      sections: ['categories'],
       isPersonalized: false,
     });
   });

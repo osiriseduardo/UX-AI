@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import type { Persona } from '../personas';
 import { personas } from '../personas';
+import { CartIcon, ChevronDownIcon, SearchIcon, TagIcon } from '../ui/icons';
 
 interface HeaderProps {
   persona: Persona;
@@ -25,25 +26,19 @@ export function Header({
     <header className="site-header">
       <div className="header-inner">
         <a className="brand" href="#/">
-          <span className="brand-mark" aria-hidden="true">
-            U
-          </span>
-          <span>
-            UX<span className="brand-dot">·</span>AI Store
-          </span>
+          <TagIcon className="brand-mark" size={20} />
+          <span>UX·AI Store</span>
         </a>
 
         <form className="search" role="search" onSubmit={(event) => event.preventDefault()}>
           <label className="sr-only" htmlFor="search-input">
             Buscar productos
           </label>
-          <span className="search-icon" aria-hidden="true">
-            ⌕
-          </span>
+          <SearchIcon className="search-icon" />
           <input
             id="search-input"
             type="search"
-            placeholder="Buscar productos, marcas"
+            placeholder="Buscar productos"
             value={query}
             onChange={(event) => onQuery(event.target.value)}
           />
@@ -62,9 +57,9 @@ export function Header({
                 {persona.initial}
               </span>
               <span className="persona-label">
-                <small>Hola,</small> {persona.name}
+                <small>Perfil</small> {persona.name}
               </span>
-              <span aria-hidden="true">▾</span>
+              <ChevronDownIcon className="persona-caret" />
             </button>
 
             {menuOpen && (
@@ -95,7 +90,7 @@ export function Header({
           </div>
 
           <button type="button" className="cart-button" onClick={onOpenCart}>
-            <span aria-hidden="true">🛒</span>
+            <CartIcon />
             <span className="cart-label">Carrito</span>
             <span className="cart-badge" aria-label={`${cartCount} productos en el carrito`}>
               {cartCount}
@@ -103,7 +98,6 @@ export function Header({
           </button>
         </div>
       </div>
-
     </header>
   );
 }

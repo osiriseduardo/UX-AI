@@ -55,6 +55,7 @@ ml/data/raw/*.csv ──► ml/ (Python, offline) ──► web/public/data/*.js
 - `src/components/`: presentational React components. They call domain functions and never repeat the rules.
 - `src/mocks/`: the mock product catalog, grouped by category. The dataset has no products.
 - The profile selector offers the four personas from the Figma design (Carlos, Ana, Luis, Sofía) mapped onto exported dataset profiles. The names are display labels only: the rule table still picks every variant. Ana is a guest with no history, so she exercises `DEFAULT_POPULAR` plus the cart reminder.
+- Each persona with history gets the first exported profile of its expected variant whose Hero category (its cluster's #1) no other persona shows, counting Ana's default Hero (global popularity #1); only when the export offers no such profile does it fall back to the first match (`assignProfiles` in `src/personas.ts`). This keeps the four Homes visibly different after any re-export.
 - Screens:
   - **Home/Dashboard**: arranged by the rules.
   - **Category detail** and **Profile**: fixed layout; only the content changes.
@@ -66,7 +67,9 @@ The layout rules and the section order per variant are in [`layout-rules.md`](la
 
 ## Quality
 
-Each acceptance criterion (CA-01'..CA-05) maps to an automated test; see [`acceptance-criteria.md`](acceptance-criteria.md). CI runs the ML tests, the web unit tests, the build and the e2e tests on every PR to `develop`.
+Each acceptance criterion (CA-01'..CA-05) maps to an automated test; see [`acceptance-criteria.md`](acceptance-criteria.md).
+
+The chain CSV → model → committed JSON → UI is tested end to end: `ml/tests/test_export.py` asserts that `web/public/data/` equals a fresh export (skipped without the CSV), `web/src/data/committed-artifacts.test.ts` checks that every exported value has a place in the web app, and `web/e2e/integration-personas.spec.ts` checks that each persona's screen shows its assigned customer, cluster, Hero and ranking. CI runs the ML tests, the web unit tests, the build and the e2e tests on every PR to `develop`.
 
 ## Decisions
 
@@ -81,3 +84,4 @@ Each acceptance criterion (CA-01'..CA-05) maps to an automated test; see [`accep
 | 2026-11-06 | Products are mock data; the UI is responsive (desktop and mobile). |
 | 2026-11-06 | Figma is the design source only, outside the repo; CA-04 navigation is verified in the web app. |
 | 2026-11-14 | The UI shows the four Figma personas (Carlos, Ana, Luis, Sofía) as labels over exported profiles; Ana is a guest that demonstrates `DEFAULT_POPULAR` and the cart reminder. No new layout variants. |
+| 2026-11-17 | Personas are assigned profiles with distinct Hero categories, so no two personas (guest included) show the same cluster #1. |
