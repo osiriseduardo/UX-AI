@@ -31,7 +31,7 @@ export function SectionBlock({
   onOpenCategory,
 }: SectionBlockProps) {
   return (
-    <section className="section-block" aria-labelledby={`section-${kind}`}>
+    <section className="section-block" data-kind={kind} aria-labelledby={`section-${kind}`}>
       <header className="section-heading">
         <div>
           <h2 id={`section-${kind}`}>{HEADINGS[kind]}</h2>
@@ -49,7 +49,12 @@ export function SectionBlock({
       </header>
       <div className="product-row">
         {products.map((product) => (
-          <ProductCard key={product.id} product={product} onAdd={onAdd} />
+          <ProductCard
+            key={product.id}
+            product={product}
+            onAdd={onAdd}
+            boughtBefore={kind === 'keepShopping' && Boolean(product.previouslyBought)}
+          />
         ))}
       </div>
     </section>
