@@ -1,0 +1,113 @@
+{
+  "kind": "rankings",
+  "clusters": [
+    {
+      "cluster": 0,
+      "categories": [
+        "Books",
+        "Grocery",
+        "Sports & Fitness",
+        "Toys"
+      ]
+    },
+    {
+      "cluster": 1,
+      "categories": [
+        "Home & Kitchen",
+        "Fashion",
+        "Beauty",
+        "Health & Personal Care"
+      ]
+    },
+    {
+      "cluster": 2,
+      "categories": [
+        "Grocery",
+        "Books",
+        "Office Supplies",
+        "Health & Personal Care"
+      ]
+    },
+    {
+      "cluster": 3,
+      "categories": [
+        "Sports & Fitness",
+        "Automotive",
+        "Home & Kitchen",
+        "Office Supplies"
+      ]
+    },
+    {
+      "cluster": 4,
+      "categories": [
+        "Health & Personal Care",
+        "Office Supplies",
+        "Grocery",
+        "Books"
+      ]
+    },
+    {
+      "cluster": 5,
+      "categories": [
+        "Automotive",
+        "Pet Supplies",
+        "Beauty",
+        "Electronics"
+      ]
+    },
+    {
+      "cluster": 6,
+      "categories": [
+        "Office Supplies",
+        "Grocery",
+        "Electronics",
+        "Fashion"
+      ]
+    },
+    {
+      "cluster": 7,
+      "categories": [
+        "Toys",
+        "Grocery",
+        "Automotive",
+        "Office Supplies"
+      ]
+    },
+    {
+      "cluster": 8,
+      "categories": [
+        "Pet Supplies",
+        "Grocery",
+        "Office Supplies",
+        "Electronics"
+      ]
+    },
+    {
+      "cluster": 9,
+      "categories": [
+        "Fashion",
+        "Grocery",
+        "Office Supplies",
+        "Home & Kitchen"
+      ]
+    },
+    {
+      "cluster": 10,
+      "categories": [
+        "Beauty",
+        "Toys",
+        "Sports & Fitness",
+        "Books"
+      ]
+    },
+    {
+      "cluster": 11,
+      "categories": [
+        "Electronics",
+        "Beauty",
+        "Health & Personal Care",
+        "Fashion"
+      ]
+    }
+  ]
+}

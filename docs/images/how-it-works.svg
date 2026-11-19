@@ -1,0 +1,194 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="610" viewBox="0 0 1200 610" role="img" aria-labelledby="title desc">
+  <title id="title">How UX-AI arranges the Home</title>
+  <desc id="desc">Four steps. 1: the CSV holds 50,000 customers, and each customer's three favorite categories become weights 3, 2 and 1. 2: K-Means groups the customers into 12 clusters (silhouette 0.414) and each cluster gets a top-4 category ranking. 3: a rule table maps activity and segment to a layout variant, first match wins: at risk, dormant or inactive to OFERTAS_PRIMERO; frequent or regular buyer to RECOMPRA_PRIMERO; new or occasional buyer to EXPLORACION; no data or the default view to DEFAULT_POPULAR. 4: the personalized Home shows category number 1 in the Hero, and the variant sets the order and colour of the sections. Steps 1 and 2 run offline in ml/ with Python; steps 3 and 4 run in the browser in web/ with React.</desc>
+
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#8a8a8a"/>
+    </marker>
+    <clipPath id="frame">
+      <rect x="936" y="196" width="204" height="270" rx="10"/>
+    </clipPath>
+  </defs>
+
+  <style>
+    .sans { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; }
+    .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+    .title { font-size: 28px; font-weight: 600; fill: #ffffff; }
+    .lede { font-size: 16px; fill: #a3a3a3; }
+    .step { font-size: 13px; font-weight: 600; fill: #ffffff; }
+    .head { font-size: 18px; font-weight: 600; fill: #ffffff; }
+    .body { font-size: 13px; fill: #c9c9c9; }
+    .label { font-size: 13px; font-weight: 500; fill: #ffffff; }
+    .meta { font-size: 11px; fill: #a3a3a3; }
+    .chip { font-size: 11px; font-weight: 500; }
+  </style>
+
+  <!-- Card -->
+  <rect width="1200" height="610" rx="24" fill="#1c1c1c"/>
+
+  <text x="40" y="66" class="sans title">How UX-AI arranges the Home</text>
+  <text x="40" y="96" class="sans lede">K-Means picks which categories a customer sees. A rule table decides how the Home shows them.</text>
+
+  <!-- Panels -->
+  <rect x="40" y="128" width="244" height="400" rx="16" fill="#2a2a2a"/>
+  <rect x="332" y="128" width="244" height="400" rx="16" fill="#2a2a2a"/>
+  <rect x="624" y="128" width="244" height="400" rx="16" fill="#2a2a2a"/>
+  <rect x="916" y="128" width="244" height="400" rx="16" fill="#2a2a2a"/>
+
+  <!-- Arrows between steps -->
+  <line x1="290" y1="328" x2="324" y2="328" stroke="#8a8a8a" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="582" y1="328" x2="616" y2="328" stroke="#8a8a8a" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="600" y="314" text-anchor="middle" class="mono meta">JSON</text>
+  <line x1="874" y1="328" x2="908" y2="328" stroke="#8a8a8a" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- 1. Customer data -->
+  <circle cx="72" cy="164" r="12" fill="#3d3d3d"/>
+  <text x="72" y="168.5" text-anchor="middle" class="sans step">1</text>
+  <text x="94" y="170" class="sans head">Customer data</text>
+
+  <text x="60" y="232" class="sans" font-size="34" font-weight="600" fill="#ffffff">50,000</text>
+  <text x="60" y="256" class="sans body">customers in the CSV</text>
+
+  <text x="60" y="306" class="sans label">Favorite categories</text>
+  <text x="60" y="340" class="mono meta">1st</text>
+  <rect x="96" y="329" width="108" height="14" rx="4" fill="#e6e6e6"/>
+  <text x="214" y="340" class="mono meta">×3</text>
+  <text x="60" y="374" class="mono meta">2nd</text>
+  <rect x="96" y="363" width="72" height="14" rx="4" fill="#a3a3a3"/>
+  <text x="178" y="374" class="mono meta">×2</text>
+  <text x="60" y="408" class="mono meta">3rd</text>
+  <rect x="96" y="397" width="36" height="14" rx="4" fill="#6b6b6b"/>
+  <text x="142" y="408" class="mono meta">×1</text>
+
+  <text x="60" y="456" class="sans body">Each customer becomes</text>
+  <text x="60" y="476" class="sans body">a row of category weights</text>
+
+  <!-- 2. K-Means -->
+  <circle cx="364" cy="164" r="12" fill="#3d3d3d"/>
+  <text x="364" y="168.5" text-anchor="middle" class="sans step">2</text>
+  <text x="386" y="170" class="sans head">K-Means</text>
+
+  <g fill="#6b6b6b">
+    <circle cx="380" cy="214" r="4"/><circle cx="389" cy="208" r="4"/><circle cx="372" cy="219" r="4"/><circle cx="386" cy="223" r="4"/><circle cx="370" cy="207" r="4"/><circle cx="392" cy="218" r="4"/>
+  </g>
+  <g fill="#a3a3a3">
+    <circle cx="520" cy="216" r="4"/><circle cx="529" cy="210" r="4"/><circle cx="512" cy="221" r="4"/><circle cx="526" cy="225" r="4"/><circle cx="510" cy="209" r="4"/><circle cx="532" cy="220" r="4"/>
+  </g>
+  <g fill="#8a8a8a">
+    <circle cx="392" cy="292" r="4"/><circle cx="401" cy="286" r="4"/><circle cx="384" cy="297" r="4"/><circle cx="398" cy="301" r="4"/><circle cx="382" cy="285" r="4"/><circle cx="404" cy="296" r="4"/>
+  </g>
+  <g fill="#c9c9c9">
+    <circle cx="470" cy="300" r="4"/><circle cx="479" cy="294" r="4"/><circle cx="462" cy="305" r="4"/><circle cx="476" cy="309" r="4"/><circle cx="460" cy="293" r="4"/><circle cx="482" cy="304" r="4"/>
+  </g>
+  <g fill="#6b6b6b">
+    <circle cx="534" cy="296" r="4"/><circle cx="543" cy="290" r="4"/><circle cx="526" cy="301" r="4"/><circle cx="540" cy="305" r="4"/><circle cx="524" cy="289" r="4"/><circle cx="546" cy="300" r="4"/>
+  </g>
+  <!-- The highlighted cluster -->
+  <circle cx="452" cy="250" r="26" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-dasharray="4 4"/>
+  <g fill="#ffffff">
+    <circle cx="450" cy="248" r="4"/><circle cx="459" cy="242" r="4"/><circle cx="442" cy="253" r="4"/><circle cx="456" cy="257" r="4"/><circle cx="440" cy="241" r="4"/><circle cx="462" cy="252" r="4"/>
+  </g>
+
+  <text x="352" y="352" class="mono meta">k = 12 · silhouette 0.414</text>
+
+  <text x="352" y="392" class="sans label">Top-4 per cluster</text>
+  <rect x="352" y="405" width="28" height="18" rx="4" fill="#ffffff"/>
+  <text x="366" y="418" text-anchor="middle" class="mono chip" fill="#1c1c1c">#1</text>
+  <text x="390" y="418" class="sans body" style="fill: #ffffff">Books</text>
+  <rect x="352" y="429" width="28" height="18" rx="4" fill="#3d3d3d"/>
+  <text x="366" y="442" text-anchor="middle" class="mono chip" fill="#ffffff">#2</text>
+  <text x="390" y="442" class="sans body">Grocery</text>
+  <rect x="352" y="453" width="28" height="18" rx="4" fill="#3d3d3d"/>
+  <text x="366" y="466" text-anchor="middle" class="mono chip" fill="#ffffff">#3</text>
+  <text x="390" y="466" class="sans body">Sports &amp; Fitness</text>
+  <rect x="352" y="477" width="28" height="18" rx="4" fill="#3d3d3d"/>
+  <text x="366" y="490" text-anchor="middle" class="mono chip" fill="#ffffff">#4</text>
+  <text x="390" y="490" class="sans body">Toys</text>
+
+  <!-- 3. Rule table -->
+  <circle cx="656" cy="164" r="12" fill="#3d3d3d"/>
+  <text x="656" y="168.5" text-anchor="middle" class="sans step">3</text>
+  <text x="678" y="170" class="sans head">Rule table</text>
+
+  <text x="644" y="212" class="sans body">Activity + segment → layout</text>
+
+  <text x="644" y="250" class="sans body">At risk, dormant, inactive</text>
+  <rect x="644" y="260" width="116" height="22" rx="6" fill="#ff83a3"/>
+  <text x="652" y="275" class="mono chip" fill="#1c1c1c">OFERTAS_PRIMERO</text>
+
+  <text x="644" y="316" class="sans body">Frequent or regular buyer</text>
+  <rect x="644" y="326" width="124" height="22" rx="6" fill="#70c1de"/>
+  <text x="652" y="341" class="mono chip" fill="#1c1c1c">RECOMPRA_PRIMERO</text>
+
+  <text x="644" y="382" class="sans body">New or occasional buyer</text>
+  <rect x="644" y="392" width="92" height="22" rx="6" fill="#e02a22"/>
+  <text x="652" y="407" class="mono chip" fill="#ffffff">EXPLORACION</text>
+
+  <text x="644" y="448" class="sans body">No data or default view</text>
+  <rect x="644" y="458" width="116" height="22" rx="6" fill="#9485f1"/>
+  <text x="652" y="473" class="mono chip" fill="#1c1c1c">DEFAULT_POPULAR</text>
+
+  <text x="644" y="508" class="mono meta">First match wins</text>
+
+  <!-- 4. Personalized Home -->
+  <circle cx="948" cy="164" r="12" fill="#3d3d3d"/>
+  <text x="948" y="168.5" text-anchor="middle" class="sans step">4</text>
+  <text x="970" y="170" class="sans head">Personalized Home</text>
+
+  <g clip-path="url(#frame)">
+    <rect x="936" y="196" width="204" height="270" fill="#ffffff"/>
+    <!-- Header -->
+    <rect x="936" y="196" width="204" height="20" fill="#111111"/>
+    <rect x="944" y="203" width="6" height="6" rx="1.5" fill="#e02a22"/>
+    <rect x="956" y="204" width="34" height="4" rx="2" fill="#6b6b6b"/>
+    <rect x="1106" y="202" width="26" height="8" rx="2" fill="#e02a22"/>
+    <!-- AI notice -->
+    <rect x="946" y="224" width="184" height="14" rx="3" fill="#1c1c1c"/>
+    <!-- Hero: category #1, coloured by the variant -->
+    <rect x="946" y="246" width="184" height="88" rx="6" fill="#ff83a3"/>
+    <text x="956" y="270" class="sans" font-size="13" font-weight="600" fill="#1c1c1c">#1 Books</text>
+    <rect x="956" y="279" width="62" height="4" rx="2" fill="#1c1c1c"/>
+    <rect x="956" y="287" width="44" height="4" rx="2" fill="#1c1c1c"/>
+    <rect x="956" y="306" width="44" height="14" rx="3" fill="#1c1c1c"/>
+    <rect x="1036" y="256" width="42" height="68" rx="4" fill="#1c1c1c"/>
+    <rect x="1040" y="260" width="34" height="30" rx="2" fill="#e6e6e6"/>
+    <rect x="1040" y="298" width="22" height="4" rx="2" fill="#6b6b6b"/>
+    <rect x="1040" y="308" width="16" height="7" rx="2" fill="#ff83a3"/>
+    <rect x="1082" y="256" width="42" height="68" rx="4" fill="#1c1c1c"/>
+    <rect x="1086" y="260" width="34" height="30" rx="2" fill="#e6e6e6"/>
+    <rect x="1086" y="298" width="22" height="4" rx="2" fill="#6b6b6b"/>
+    <rect x="1086" y="308" width="16" height="7" rx="2" fill="#ff83a3"/>
+    <!-- Sections in variant order: offers, suggestions, keep shopping -->
+    <rect x="946" y="344" width="48" height="4" rx="2" fill="#1c1c1c"/>
+    <rect x="946" y="352" width="58" height="26" rx="4" fill="#1c1c1c"/>
+    <rect x="1009" y="352" width="58" height="26" rx="4" fill="#1c1c1c"/>
+    <rect x="1072" y="352" width="58" height="26" rx="4" fill="#1c1c1c"/>
+    <rect x="946" y="352" width="58" height="3" fill="#ff83a3"/>
+    <rect x="1009" y="352" width="58" height="3" fill="#ff83a3"/>
+    <rect x="1072" y="352" width="58" height="3" fill="#ff83a3"/>
+    <rect x="946" y="386" width="48" height="4" rx="2" fill="#1c1c1c"/>
+    <rect x="946" y="394" width="58" height="26" rx="4" fill="#1c1c1c"/>
+    <rect x="1009" y="394" width="58" height="26" rx="4" fill="#1c1c1c"/>
+    <rect x="1072" y="394" width="58" height="26" rx="4" fill="#1c1c1c"/>
+    <rect x="946" y="394" width="58" height="3" fill="#e02a22"/>
+    <rect x="1009" y="394" width="58" height="3" fill="#e02a22"/>
+    <rect x="1072" y="394" width="58" height="3" fill="#e02a22"/>
+    <rect x="946" y="428" width="48" height="4" rx="2" fill="#1c1c1c"/>
+    <rect x="946" y="436" width="58" height="26" rx="4" fill="#1c1c1c"/>
+    <rect x="1009" y="436" width="58" height="26" rx="4" fill="#1c1c1c"/>
+    <rect x="1072" y="436" width="58" height="26" rx="4" fill="#1c1c1c"/>
+    <rect x="946" y="436" width="58" height="3" fill="#70c1de"/>
+    <rect x="1009" y="436" width="58" height="3" fill="#70c1de"/>
+    <rect x="1072" y="436" width="58" height="3" fill="#70c1de"/>
+  </g>
+
+  <text x="936" y="492" class="sans body" style="fill: #ffffff">Hero shows category #1</text>
+  <text x="936" y="512" class="sans body">Variant sets order and colour</text>
+
+  <!-- Where each half runs -->
+  <path d="M40 548 V556 H576 V548" fill="none" stroke="#6b6b6b" stroke-width="1.5"/>
+  <text x="308" y="584" text-anchor="middle" class="sans body"><tspan class="mono" fill="#ffffff">ml/</tspan>  Python, offline</text>
+  <path d="M624 548 V556 H1160 V548" fill="none" stroke="#6b6b6b" stroke-width="1.5"/>
+  <text x="892" y="584" text-anchor="middle" class="sans body"><tspan class="mono" fill="#ffffff">web/</tspan>  React, in the browser</text>
+</svg>
