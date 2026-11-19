@@ -2,20 +2,19 @@
 
 Prototype of an online store whose home page adapts to each customer.
 
+![How UX-AI works: customer data becomes category weights, K-Means groups customers into 12 clusters with a top-4 ranking each, a rule table picks one of four layout variants, and the Home shows category #1 in the Hero](docs/images/how-it-works.svg)
+
 ## What it does
 
 When you pick a customer profile, the store rearranges itself for that customer:
 
 1. **Which categories?** A K-Means model groups 50,000 customers by the categories they prefer. Each group gets its own top-4 categories. The #1 category always goes in the large Hero banner.
-2. **How are they arranged?** A simple rule table looks at the customer's activity and decides what the Hero highlights and the order of the sections below it. For example, a customer who has not bought in a while sees offers first.
+2. **How are they arranged?** A simple rule table looks at the customer's activity and buying segment and picks one of four layouts. The layout decides what the Hero highlights, the order of the sections below it and the colour of the page. For example, a customer who has not bought in a while sees offers first.
 3. **Transparency.** Every personalized view says that it was arranged automatically and offers a button to restore the default view.
 
-K-Means is the only machine learning in the project. The layout is plain rules. Products are mock data. The site works on desktop and mobile.
+To try it, open the store and switch the profile in the header. Carlos, Ana, Luis and Sofía each land on a different layout.
 
-```
-dataset (CSV) ──► ml/ (Python, offline) ──► JSON files ──► web/ (React, static site)
-                  trains K-Means                          applies the rules and shows the store
-```
+K-Means is the only machine learning in the project. The layout is plain rules. Products are mock data. The site works on desktop and mobile.
 
 The full design, the components and the decisions are in **[docs/architecture.md](docs/architecture.md)**, the single source of truth.
 
@@ -53,12 +52,15 @@ pnpm --version
 
 ### 2. Install the project dependencies
 
-Run these from the repository root once `ml/` and `web/` exist:
+Run these from the repository root:
 
 ```sh
 uv sync --project ml
 pnpm --dir web install --frozen-lockfile
+pnpm --dir web exec playwright install chromium
 ```
+
+The last command downloads the browser for the end-to-end tests; skip it if you only run the store.
 
 ### 3. Get the dataset (only for ML work)
 
@@ -70,8 +72,10 @@ The dataset is not committed. Ask the team for `E-commerce_Customer_Segmentation
 |---|---|
 | Run the ML tests | `uv run --project ml pytest` |
 | Lint the Python code | `uv run --project ml ruff check ml` |
+| Export the model's JSON files (needs the dataset) | `uv run --project ml python -m uxai.export` |
 | Start the store locally | `pnpm --dir web dev` |
 | Run the web unit tests | `pnpm --dir web test` |
+| Run the end-to-end and accessibility tests | `pnpm --dir web e2e` |
 | Build the static site | `pnpm --dir web build` |
 | Lint the web code | `pnpm --dir web lint` |
 
