@@ -61,7 +61,7 @@ ml/data/raw/*.csv ──► ml/ (Python, offline) ──► web/public/data/*.js
   - **Category detail** and **Profile**: fixed layout; only the content changes.
 - Must work on desktop and mobile. On mobile it is a single column in the same order.
 - Every personalized view shows the AI notice and a "restore default view" control.
-- Deployed as a static site on GitHub Pages.
+- Runs locally on each developer's machine. It is not deployed anywhere.
 
 The layout rules and the section order per variant are in [`layout-rules.md`](layout-rules.md).
 
@@ -69,7 +69,7 @@ The layout rules and the section order per variant are in [`layout-rules.md`](la
 
 Each acceptance criterion (CA-01'..CA-05) maps to an automated test; see [`acceptance-criteria.md`](acceptance-criteria.md).
 
-The chain CSV → model → committed JSON → UI is tested end to end: `ml/tests/test_export.py` asserts that `web/public/data/` equals a fresh export (skipped without the CSV), `web/src/data/committed-artifacts.test.ts` checks that every exported value has a place in the web app, and `web/e2e/integration-personas.spec.ts` checks that each persona's screen shows its assigned customer, cluster, Hero and ranking. CI runs the ML tests, the web unit tests, the build and the e2e tests on every PR to `develop`.
+The chain CSV → model → committed JSON → UI is tested end to end: `ml/tests/test_export.py` asserts that `web/public/data/` equals a fresh export (skipped without the CSV), `web/src/data/committed-artifacts.test.ts` checks that every exported value has a place in the web app, and `web/e2e/integration-personas.spec.ts` checks that each persona's screen shows its assigned customer, cluster, Hero and ranking. There is no CI: before opening a PR to `develop`, run the ML tests, the web unit tests, the build and the e2e tests locally (commands in the README).
 
 ## Decisions
 
@@ -85,3 +85,4 @@ The chain CSV → model → committed JSON → UI is tested end to end: `ml/test
 | 2026-11-06 | Figma is the design source only, outside the repo; CA-04 navigation is verified in the web app. |
 | 2026-11-14 | The UI shows the four Figma personas (Carlos, Ana, Luis, Sofía) as labels over exported profiles; Ana is a guest that demonstrates `DEFAULT_POPULAR` and the cart reminder. No new layout variants. |
 | 2026-11-17 | Personas are assigned profiles with distinct Hero categories, so no two personas (guest included) show the same cluster #1. |
+| 2026-11-19 | No deployment and no CI. The demo runs locally, and each developer runs the checks before opening a PR. |
